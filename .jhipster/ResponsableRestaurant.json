@@ -1,0 +1,44 @@
+{
+  "applications": "*",
+  "changelogDate": "20220515190933",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "responsable_restaurant",
+  "fields": [
+    {
+      "fieldName": "idResponsable",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomResponsable",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenomResponsable",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adresseResponsable",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numResponsable",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "ResponsableRestaurant",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "restaurant",
+      "otherEntityRelationshipName": "responsableRestaurant",
+      "ownerSide": true,
+      "relationshipName": "restaurant",
+      "relationshipType": "one-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

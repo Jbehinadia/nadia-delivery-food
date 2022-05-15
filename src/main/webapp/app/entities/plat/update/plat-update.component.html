@@ -1,0 +1,84 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-plat-heading" data-cy="PlatCreateUpdateHeading" jhiTranslate="nadiaDeliveryFoodApp.plat.home.createOrEditLabel">
+        Create or edit a Plat
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.plat.idPlat" for="field_idPlat">Id Plat</label>
+          <input type="text" class="form-control" name="idPlat" id="field_idPlat" data-cy="idPlat" formControlName="idPlat" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.plat.nomPlat" for="field_nomPlat">Nom Plat</label>
+          <input type="text" class="form-control" name="nomPlat" id="field_nomPlat" data-cy="nomPlat" formControlName="nomPlat" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.plat.imagePath" for="field_imagePath">Image Path</label>
+          <input type="text" class="form-control" name="imagePath" id="field_imagePath" data-cy="imagePath" formControlName="imagePath" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.plat.prix" for="field_prix">Prix</label>
+          <input type="number" class="form-control" name="prix" id="field_prix" data-cy="prix" formControlName="prix" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.plat.remisePerc" for="field_remisePerc">Remise Perc</label>
+          <input
+            type="number"
+            class="form-control"
+            name="remisePerc"
+            id="field_remisePerc"
+            data-cy="remisePerc"
+            formControlName="remisePerc"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.plat.remiceVal" for="field_remiceVal">Remice Val</label>
+          <input type="number" class="form-control" name="remiceVal" id="field_remiceVal" data-cy="remiceVal" formControlName="remiceVal" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.plat.menu" for="field_menu">Menu</label>
+          <select class="form-control" id="field_menu" data-cy="menu" name="menu" formControlName="menu">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="menuOption.id === editForm.get('menu')!.value?.id ? editForm.get('menu')!.value : menuOption"
+              *ngFor="let menuOption of menusSharedCollection; trackBy: trackMenuById"
+            >
+              {{ menuOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

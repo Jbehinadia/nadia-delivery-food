@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="plat">
+      <h2 data-cy="platDetailsHeading"><span jhiTranslate="nadiaDeliveryFoodApp.plat.detail.title">Plat</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ plat.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.plat.idPlat">Id Plat</span></dt>
+        <dd>
+          <span>{{ plat.idPlat }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.plat.nomPlat">Nom Plat</span></dt>
+        <dd>
+          <span>{{ plat.nomPlat }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.plat.imagePath">Image Path</span></dt>
+        <dd>
+          <span>{{ plat.imagePath }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.plat.prix">Prix</span></dt>
+        <dd>
+          <span>{{ plat.prix }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.plat.remisePerc">Remise Perc</span></dt>
+        <dd>
+          <span>{{ plat.remisePerc }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.plat.remiceVal">Remice Val</span></dt>
+        <dd>
+          <span>{{ plat.remiceVal }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.plat.menu">Menu</span></dt>
+        <dd>
+          <div *ngIf="plat.menu">
+            <a [routerLink]="['/menu', plat.menu?.id, 'view']">{{ plat.menu?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/plat', plat.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

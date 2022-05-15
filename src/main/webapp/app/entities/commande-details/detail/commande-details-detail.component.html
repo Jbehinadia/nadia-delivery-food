@@ -1,0 +1,68 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="commandeDetails">
+      <h2 data-cy="commandeDetailsDetailsHeading">
+        <span jhiTranslate="nadiaDeliveryFoodApp.commandeDetails.detail.title">Commande Details</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ commandeDetails.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.commandeDetails.prix">Prix</span></dt>
+        <dd>
+          <span>{{ commandeDetails.prix }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.commandeDetails.etat">Etat</span></dt>
+        <dd>
+          <span>{{ commandeDetails.etat }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.commandeDetails.commande">Commande</span></dt>
+        <dd>
+          <div *ngIf="commandeDetails.commande">
+            <a [routerLink]="['/commande', commandeDetails.commande?.id, 'view']">{{ commandeDetails.commande?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.commandeDetails.fastFood">Fast Food</span></dt>
+        <dd>
+          <div *ngIf="commandeDetails.fastFood">
+            <a [routerLink]="['/fast-food', commandeDetails.fastFood?.id, 'view']">{{ commandeDetails.fastFood?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.commandeDetails.plat">Plat</span></dt>
+        <dd>
+          <div *ngIf="commandeDetails.plat">
+            <a [routerLink]="['/plat', commandeDetails.plat?.id, 'view']">{{ commandeDetails.plat?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.commandeDetails.boissons">Boissons</span></dt>
+        <dd>
+          <div *ngIf="commandeDetails.boissons">
+            <a [routerLink]="['/boissons', commandeDetails.boissons?.id, 'view']">{{ commandeDetails.boissons?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.commandeDetails.dessert">Dessert</span></dt>
+        <dd>
+          <div *ngIf="commandeDetails.dessert">
+            <a [routerLink]="['/dessert', commandeDetails.dessert?.id, 'view']">{{ commandeDetails.dessert?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/commande-details', commandeDetails.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

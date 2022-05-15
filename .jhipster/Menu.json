@@ -1,0 +1,55 @@
+{
+  "applications": "*",
+  "changelogDate": "20220515190936",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "menu",
+  "fields": [
+    {
+      "fieldName": "idMenu",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomMenu",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Menu",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "fastFood",
+      "otherEntityRelationshipName": "menu",
+      "relationshipName": "fastFood",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "plat",
+      "otherEntityRelationshipName": "menu",
+      "relationshipName": "plat",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "dessert",
+      "otherEntityRelationshipName": "menu",
+      "relationshipName": "dessert",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "boissons",
+      "otherEntityRelationshipName": "menu",
+      "relationshipName": "boissons",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "restaurant",
+      "otherEntityRelationshipName": "commande",
+      "relationshipName": "restaurant",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

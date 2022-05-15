@@ -1,0 +1,31 @@
+{
+  "nadiaDeliveryFoodApp": {
+    "dessert": {
+      "home": {
+        "title": "Desserts",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Dessert",
+        "createOrEditLabel": "Créer ou éditer un Dessert",
+        "notFound": "Aucun Dessert trouvé"
+      },
+      "created": "Un nouveau Dessert a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Dessert avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Dessert avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Dessert {{ id }} ?"
+      },
+      "detail": {
+        "title": "Dessert"
+      },
+      "id": "ID",
+      "idDessert": "Id Dessert",
+      "nomDessert": "Nom Dessert",
+      "imagePath": "Image Path",
+      "prix": "Prix",
+      "remisePerc": "Remise Perc",
+      "remiceVal": "Remice Val",
+      "commandeDetails": "Commande Details",
+      "menu": "Menu"
+    }
+  }
+}

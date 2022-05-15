@@ -1,0 +1,39 @@
+{
+  "applications": "*",
+  "changelogDate": "20220515190934",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "restaurant",
+  "fields": [
+    {
+      "fieldName": "idRestaurant",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomRestaurant",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adresseRestaurant",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numRestaurant",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Restaurant",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "menu",
+      "otherEntityRelationshipName": "restaurant",
+      "relationshipName": "commande",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

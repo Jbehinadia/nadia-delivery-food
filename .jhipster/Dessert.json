@@ -1,0 +1,53 @@
+{
+  "applications": "*",
+  "changelogDate": "20220515190940",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "dessert",
+  "fields": [
+    {
+      "fieldName": "idDessert",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomDessert",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "imagePath",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prix",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "remisePerc",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "remiceVal",
+      "fieldType": "Double"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Dessert",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "commandeDetails",
+      "otherEntityRelationshipName": "dessert",
+      "relationshipName": "commandeDetails",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "menu",
+      "otherEntityRelationshipName": "dessert",
+      "relationshipName": "menu",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

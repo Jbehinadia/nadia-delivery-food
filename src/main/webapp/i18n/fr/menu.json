@@ -1,0 +1,30 @@
+{
+  "nadiaDeliveryFoodApp": {
+    "menu": {
+      "home": {
+        "title": "Menus",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Menu",
+        "createOrEditLabel": "Créer ou éditer un Menu",
+        "notFound": "Aucun Menu trouvé"
+      },
+      "created": "Un nouveau Menu a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Menu avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Menu avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Menu {{ id }} ?"
+      },
+      "detail": {
+        "title": "Menu"
+      },
+      "id": "ID",
+      "idMenu": "Id Menu",
+      "nomMenu": "Nom Menu",
+      "fastFood": "Fast Food",
+      "plat": "Plat",
+      "dessert": "Dessert",
+      "boissons": "Boissons",
+      "restaurant": "Restaurant"
+    }
+  }
+}

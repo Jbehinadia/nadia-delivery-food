@@ -1,0 +1,48 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="client">
+      <h2 data-cy="clientDetailsHeading"><span jhiTranslate="nadiaDeliveryFoodApp.client.detail.title">Client</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ client.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.client.idClient">Id Client</span></dt>
+        <dd>
+          <span>{{ client.idClient }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.client.nomClient">Nom Client</span></dt>
+        <dd>
+          <span>{{ client.nomClient }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.client.prenomClient">Prenom Client</span></dt>
+        <dd>
+          <span>{{ client.prenomClient }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.client.adresseClient">Adresse Client</span></dt>
+        <dd>
+          <span>{{ client.adresseClient }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.client.numClient">Num Client</span></dt>
+        <dd>
+          <span>{{ client.numClient }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/client', client.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

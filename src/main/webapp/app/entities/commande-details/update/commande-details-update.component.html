@@ -1,0 +1,113 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-commande-details-heading"
+        data-cy="CommandeDetailsCreateUpdateHeading"
+        jhiTranslate="nadiaDeliveryFoodApp.commandeDetails.home.createOrEditLabel"
+      >
+        Create or edit a Commande Details
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.commandeDetails.prix" for="field_prix">Prix</label>
+          <input type="number" class="form-control" name="prix" id="field_prix" data-cy="prix" formControlName="prix" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.commandeDetails.etat" for="field_etat">Etat</label>
+          <input type="text" class="form-control" name="etat" id="field_etat" data-cy="etat" formControlName="etat" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.commandeDetails.commande" for="field_commande">Commande</label>
+          <select class="form-control" id="field_commande" data-cy="commande" name="commande" formControlName="commande">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="commandeOption.id === editForm.get('commande')!.value?.id ? editForm.get('commande')!.value : commandeOption"
+              *ngFor="let commandeOption of commandesSharedCollection; trackBy: trackCommandeById"
+            >
+              {{ commandeOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.commandeDetails.fastFood" for="field_fastFood">Fast Food</label>
+          <select class="form-control" id="field_fastFood" data-cy="fastFood" name="fastFood" formControlName="fastFood">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="fastFoodOption.id === editForm.get('fastFood')!.value?.id ? editForm.get('fastFood')!.value : fastFoodOption"
+              *ngFor="let fastFoodOption of fastFoodsSharedCollection; trackBy: trackFastFoodById"
+            >
+              {{ fastFoodOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.commandeDetails.plat" for="field_plat">Plat</label>
+          <select class="form-control" id="field_plat" data-cy="plat" name="plat" formControlName="plat">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="platOption.id === editForm.get('plat')!.value?.id ? editForm.get('plat')!.value : platOption"
+              *ngFor="let platOption of platsSharedCollection; trackBy: trackPlatById"
+            >
+              {{ platOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.commandeDetails.boissons" for="field_boissons">Boissons</label>
+          <select class="form-control" id="field_boissons" data-cy="boissons" name="boissons" formControlName="boissons">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="boissonsOption.id === editForm.get('boissons')!.value?.id ? editForm.get('boissons')!.value : boissonsOption"
+              *ngFor="let boissonsOption of boissonsSharedCollection; trackBy: trackBoissonsById"
+            >
+              {{ boissonsOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.commandeDetails.dessert" for="field_dessert">Dessert</label>
+          <select class="form-control" id="field_dessert" data-cy="dessert" name="dessert" formControlName="dessert">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="dessertOption.id === editForm.get('dessert')!.value?.id ? editForm.get('dessert')!.value : dessertOption"
+              *ngFor="let dessertOption of dessertsSharedCollection; trackBy: trackDessertById"
+            >
+              {{ dessertOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

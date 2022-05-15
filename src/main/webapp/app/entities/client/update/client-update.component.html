@@ -1,0 +1,75 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-client-heading" data-cy="ClientCreateUpdateHeading" jhiTranslate="nadiaDeliveryFoodApp.client.home.createOrEditLabel">
+        Create or edit a Client
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.client.idClient" for="field_idClient">Id Client</label>
+          <input type="text" class="form-control" name="idClient" id="field_idClient" data-cy="idClient" formControlName="idClient" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.client.nomClient" for="field_nomClient">Nom Client</label>
+          <input type="text" class="form-control" name="nomClient" id="field_nomClient" data-cy="nomClient" formControlName="nomClient" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.client.prenomClient" for="field_prenomClient">Prenom Client</label>
+          <input
+            type="text"
+            class="form-control"
+            name="prenomClient"
+            id="field_prenomClient"
+            data-cy="prenomClient"
+            formControlName="prenomClient"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.client.adresseClient" for="field_adresseClient"
+            >Adresse Client</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="adresseClient"
+            id="field_adresseClient"
+            data-cy="adresseClient"
+            formControlName="adresseClient"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.client.numClient" for="field_numClient">Num Client</label>
+          <input type="text" class="form-control" name="numClient" id="field_numClient" data-cy="numClient" formControlName="numClient" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

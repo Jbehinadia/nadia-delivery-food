@@ -1,0 +1,76 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="commande">
+      <h2 data-cy="commandeDetailsHeading"><span jhiTranslate="nadiaDeliveryFoodApp.commande.detail.title">Commande</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ commande.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.commande.idCommande">Id Commande</span></dt>
+        <dd>
+          <span>{{ commande.idCommande }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.commande.adresseCommande">Adresse Commande</span></dt>
+        <dd>
+          <span>{{ commande.adresseCommande }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.commande.etat">Etat</span></dt>
+        <dd>
+          <span>{{ commande.etat }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.commande.dateCommande">Date Commande</span></dt>
+        <dd>
+          <span>{{ commande.dateCommande | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.commande.prixTotal">Prix Total</span></dt>
+        <dd>
+          <span>{{ commande.prixTotal }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.commande.remisePerc">Remise Perc</span></dt>
+        <dd>
+          <span>{{ commande.remisePerc }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.commande.remiceVal">Remice Val</span></dt>
+        <dd>
+          <span>{{ commande.remiceVal }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.commande.prixLivreson">Prix Livreson</span></dt>
+        <dd>
+          <span>{{ commande.prixLivreson }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.commande.dateSortie">Date Sortie</span></dt>
+        <dd>
+          <span>{{ commande.dateSortie | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.commande.livreur">Livreur</span></dt>
+        <dd>
+          <div *ngIf="commande.livreur">
+            <a [routerLink]="['/livreur', commande.livreur?.id, 'view']">{{ commande.livreur?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.commande.client">Client</span></dt>
+        <dd>
+          <div *ngIf="commande.client">
+            <a [routerLink]="['/client', commande.client?.id, 'view']">{{ commande.client?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/commande', commande.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

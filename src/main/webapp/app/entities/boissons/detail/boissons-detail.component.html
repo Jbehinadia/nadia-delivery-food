@@ -1,0 +1,58 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="boissons">
+      <h2 data-cy="boissonsDetailsHeading"><span jhiTranslate="nadiaDeliveryFoodApp.boissons.detail.title">Boissons</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ boissons.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.boissons.idBoissons">Id Boissons</span></dt>
+        <dd>
+          <span>{{ boissons.idBoissons }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.boissons.nomBoissons">Nom Boissons</span></dt>
+        <dd>
+          <span>{{ boissons.nomBoissons }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.boissons.imagePath">Image Path</span></dt>
+        <dd>
+          <span>{{ boissons.imagePath }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.boissons.prix">Prix</span></dt>
+        <dd>
+          <span>{{ boissons.prix }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.boissons.remisePerc">Remise Perc</span></dt>
+        <dd>
+          <span>{{ boissons.remisePerc }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.boissons.remiceVal">Remice Val</span></dt>
+        <dd>
+          <span>{{ boissons.remiceVal }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.boissons.menu">Menu</span></dt>
+        <dd>
+          <div *ngIf="boissons.menu">
+            <a [routerLink]="['/menu', boissons.menu?.id, 'view']">{{ boissons.menu?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/boissons', boissons.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+{
+  "nadiaDeliveryFoodApp": {
+    "plat": {
+      "home": {
+        "title": "Plats",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Plat",
+        "createOrEditLabel": "Créer ou éditer un Plat",
+        "notFound": "Aucun Plat trouvé"
+      },
+      "created": "Un nouveau Plat a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Plat avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Plat avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Plat {{ id }} ?"
+      },
+      "detail": {
+        "title": "Plat"
+      },
+      "id": "ID",
+      "idPlat": "Id Plat",
+      "nomPlat": "Nom Plat",
+      "imagePath": "Image Path",
+      "prix": "Prix",
+      "remisePerc": "Remise Perc",
+      "remiceVal": "Remice Val",
+      "commandeDetails": "Commande Details",
+      "menu": "Menu"
+    }
+  }
+}

@@ -1,0 +1,126 @@
+<div>
+  <h2 id="page-heading" data-cy="DessertHeading">
+    <span jhiTranslate="nadiaDeliveryFoodApp.dessert.home.title">Desserts</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="nadiaDeliveryFoodApp.dessert.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-dessert"
+        [routerLink]="['/dessert/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="nadiaDeliveryFoodApp.dessert.home.createLabel"> Create a new Dessert </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="desserts?.length === 0">
+    <span jhiTranslate="nadiaDeliveryFoodApp.dessert.home.notFound">No desserts found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="desserts && desserts.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="idDessert">
+            <span jhiTranslate="nadiaDeliveryFoodApp.dessert.idDessert">Id Dessert</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="nomDessert">
+            <span jhiTranslate="nadiaDeliveryFoodApp.dessert.nomDessert">Nom Dessert</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="imagePath">
+            <span jhiTranslate="nadiaDeliveryFoodApp.dessert.imagePath">Image Path</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="prix">
+            <span jhiTranslate="nadiaDeliveryFoodApp.dessert.prix">Prix</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="remisePerc">
+            <span jhiTranslate="nadiaDeliveryFoodApp.dessert.remisePerc">Remise Perc</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="remiceVal">
+            <span jhiTranslate="nadiaDeliveryFoodApp.dessert.remiceVal">Remice Val</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="menu.id">
+            <span jhiTranslate="nadiaDeliveryFoodApp.dessert.menu">Menu</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let dessert of desserts; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/dessert', dessert.id, 'view']">{{ dessert.id }}</a>
+          </td>
+          <td>{{ dessert.idDessert }}</td>
+          <td>{{ dessert.nomDessert }}</td>
+          <td>{{ dessert.imagePath }}</td>
+          <td>{{ dessert.prix }}</td>
+          <td>{{ dessert.remisePerc }}</td>
+          <td>{{ dessert.remiceVal }}</td>
+          <td>
+            <div *ngIf="dessert.menu">
+              <a [routerLink]="['/menu', dessert.menu?.id, 'view']">{{ dessert.menu?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/dessert', dessert.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/dessert', dessert.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(dessert)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="desserts && desserts.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

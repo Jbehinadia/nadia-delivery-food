@@ -1,0 +1,43 @@
+{
+  "applications": "*",
+  "changelogDate": "20220515190935",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "livreur",
+  "fields": [
+    {
+      "fieldName": "idLivreur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomLivreur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenomLivreur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adresseLivreur",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numLivreur",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Livreur",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "commande",
+      "otherEntityRelationshipName": "livreur",
+      "relationshipName": "commande",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

@@ -1,0 +1,141 @@
+
+entity Client {
+	idClient String,  
+    nomClient String,
+    prenomClient String,
+    adresseClient String,
+    numClient String
+}
+
+entity ResponsableRestaurant {
+    idResponsable String,
+    nomResponsable String,
+    prenomResponsable String,
+    adresseResponsable String,
+    numResponsable String
+}
+
+entity Restaurant {
+	idRestaurant String,  
+    nomRestaurant String,
+    adresseRestaurant String,
+    numRestaurant String
+}
+
+entity Livreur {
+	idLivreur String,
+    nomLivreur String,
+    prenomLivreur String,
+    adresseLivreur String,
+    numLivreur String
+}
+
+entity Menu {
+	idMenu String,
+    nomMenu String
+}
+
+entity Plat {
+    idPlat String, 
+    nomPlat String,
+    imagePath String,
+    prix Double,
+    remisePerc Double, 
+    remiceVal Double
+}
+
+entity FastFood {
+    idFood String, 
+    nomFood String,
+    imagePath String,
+    prix Double,
+    remisePerc Double, 
+    remiceVal Double
+}
+
+entity Boissons {
+    idBoissons String, 
+    nomBoissons String,
+    imagePath String,
+    prix Double,
+    remisePerc Double, 
+    remiceVal Double
+}
+
+entity Dessert {
+    idDessert String, 
+    nomDessert String,
+    imagePath String,
+    prix Double,
+    remisePerc Double, 
+    remiceVal Double
+}
+
+entity Commande {
+	idCommande String, 
+    adresseCommande String,
+    etat String,
+    dateCommande Instant
+    prixTotal Double
+    remisePerc Double, 
+    remiceVal Double,
+    prixLivreson Double,
+    dateSortie Instant
+}
+
+entity CommandeDetails {
+    prix Double,
+    etat String,
+}
+
+relationship OneToOne{
+ResponsableRestaurant{Restaurant} to Restaurant
+}
+
+relationship OneToMany {
+	Menu{FastFood} to FastFood   
+}
+
+relationship OneToMany {
+    Menu{Plat} to Plat 
+}
+
+relationship OneToMany {
+    Menu{Dessert} to Dessert 
+}
+
+relationship OneToMany {
+    Menu{Boissons} to Boissons  
+}
+
+relationship OneToMany {
+    Restaurant{Commande} to Menu
+}
+
+relationship OneToMany {
+    Livreur{Commande} to Commande
+}
+relationship OneToMany{
+ 	Client{Commande} to Commande
+}
+
+relationship OneToMany{
+ 	Commande{CommandeDetails} to CommandeDetails
+}
+relationship OneToMany{
+ 	FastFood{CommandeDetails} to CommandeDetails
+}
+
+relationship OneToMany{
+    Plat{CommandeDetails} to CommandeDetails
+}
+relationship OneToMany{
+    Boissons{CommandeDetails} to CommandeDetails
+}
+relationship OneToMany{
+    Dessert{CommandeDetails} to CommandeDetails
+}
+
+dto Client, ResponsableRestaurant, Restaurant, Livreur, Menu, Plat, FastFood, Boissons, Dessert, Commande, CommandeDetails with mapstruct
+paginate Client, ResponsableRestaurant, Restaurant, Livreur, Menu, Plat, FastFood, Boissons, Dessert, Commande, CommandeDetails with pagination
+service Client, ResponsableRestaurant, Restaurant, Livreur, Menu, Plat, FastFood, Boissons, Dessert, Commande, CommandeDetails with serviceImpl

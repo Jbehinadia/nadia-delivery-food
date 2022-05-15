@@ -1,0 +1,71 @@
+{
+  "applications": "*",
+  "changelogDate": "20220515190941",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "commande",
+  "fields": [
+    {
+      "fieldName": "idCommande",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adresseCommande",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "etat",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "dateCommande",
+      "fieldType": "Instant"
+    },
+    {
+      "fieldName": "prixTotal",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "remisePerc",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "remiceVal",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "prixLivreson",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "dateSortie",
+      "fieldType": "Instant"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Commande",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "commandeDetails",
+      "otherEntityRelationshipName": "commande",
+      "relationshipName": "commandeDetails",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "livreur",
+      "otherEntityRelationshipName": "commande",
+      "relationshipName": "livreur",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "client",
+      "otherEntityRelationshipName": "commande",
+      "relationshipName": "client",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

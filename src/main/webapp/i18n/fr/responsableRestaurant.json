@@ -1,0 +1,29 @@
+{
+  "nadiaDeliveryFoodApp": {
+    "responsableRestaurant": {
+      "home": {
+        "title": "ResponsableRestaurants",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Responsable Restaurant",
+        "createOrEditLabel": "Créer ou éditer un Responsable Restaurant",
+        "notFound": "Aucun Responsable Restaurant trouvé"
+      },
+      "created": "Un nouveau Responsable Restaurant a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Responsable Restaurant avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Responsable Restaurant avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Responsable Restaurant {{ id }} ?"
+      },
+      "detail": {
+        "title": "Responsable Restaurant"
+      },
+      "id": "ID",
+      "idResponsable": "Id Responsable",
+      "nomResponsable": "Nom Responsable",
+      "prenomResponsable": "Prenom Responsable",
+      "adresseResponsable": "Adresse Responsable",
+      "numResponsable": "Num Responsable",
+      "restaurant": "Restaurant"
+    }
+  }
+}

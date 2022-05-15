@@ -13,7 +13,7 @@ import { Account } from 'app/core/auth/account.model';
 })
 export class HomeComponent implements OnInit, OnDestroy {
   account: Account | null = null;
-
+  image = 'content/image/3.jpg';
   private readonly destroy$ = new Subject<void>();
 
   constructor(private accountService: AccountService, private router: Router) {}

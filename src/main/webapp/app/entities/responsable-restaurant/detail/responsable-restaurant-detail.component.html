@@ -1,0 +1,56 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="responsableRestaurant">
+      <h2 data-cy="responsableRestaurantDetailsHeading">
+        <span jhiTranslate="nadiaDeliveryFoodApp.responsableRestaurant.detail.title">Responsable Restaurant</span>
+      </h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ responsableRestaurant.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.responsableRestaurant.idResponsable">Id Responsable</span></dt>
+        <dd>
+          <span>{{ responsableRestaurant.idResponsable }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.responsableRestaurant.nomResponsable">Nom Responsable</span></dt>
+        <dd>
+          <span>{{ responsableRestaurant.nomResponsable }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.responsableRestaurant.prenomResponsable">Prenom Responsable</span></dt>
+        <dd>
+          <span>{{ responsableRestaurant.prenomResponsable }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.responsableRestaurant.adresseResponsable">Adresse Responsable</span></dt>
+        <dd>
+          <span>{{ responsableRestaurant.adresseResponsable }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.responsableRestaurant.numResponsable">Num Responsable</span></dt>
+        <dd>
+          <span>{{ responsableRestaurant.numResponsable }}</span>
+        </dd>
+        <dt><span jhiTranslate="nadiaDeliveryFoodApp.responsableRestaurant.restaurant">Restaurant</span></dt>
+        <dd>
+          <div *ngIf="responsableRestaurant.restaurant">
+            <a [routerLink]="['/restaurant', responsableRestaurant.restaurant?.id, 'view']">{{ responsableRestaurant.restaurant?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/responsable-restaurant', responsableRestaurant.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

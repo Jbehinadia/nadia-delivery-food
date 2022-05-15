@@ -1,0 +1,43 @@
+{
+  "applications": "*",
+  "changelogDate": "20220515190932",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "client",
+  "fields": [
+    {
+      "fieldName": "idClient",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "nomClient",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "prenomClient",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "adresseClient",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "numClient",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Client",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "commande",
+      "otherEntityRelationshipName": "client",
+      "relationshipName": "commande",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceImpl"
+}

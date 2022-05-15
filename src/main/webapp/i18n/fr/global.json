@@ -7,6 +7,17 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entités",
+        "client": "Client",
+        "responsableRestaurant": "Responsable Restaurant",
+        "restaurant": "Restaurant",
+        "livreur": "Livreur",
+        "menu": "Menu",
+        "plat": "Plat",
+        "fastFood": "Fast Food",
+        "boissons": "Boissons",
+        "dessert": "Dessert",
+        "commande": "Commande",
+        "commandeDetails": "Commande Details",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

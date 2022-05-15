@@ -1,0 +1,31 @@
+{
+  "nadiaDeliveryFoodApp": {
+    "fastFood": {
+      "home": {
+        "title": "FastFoods",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Fast Food",
+        "createOrEditLabel": "Créer ou éditer un Fast Food",
+        "notFound": "Aucun Fast Food trouvé"
+      },
+      "created": "Un nouveau Fast Food a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Fast Food avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Fast Food avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Fast Food {{ id }} ?"
+      },
+      "detail": {
+        "title": "Fast Food"
+      },
+      "id": "ID",
+      "idFood": "Id Food",
+      "nomFood": "Nom Food",
+      "imagePath": "Image Path",
+      "prix": "Prix",
+      "remisePerc": "Remise Perc",
+      "remiceVal": "Remice Val",
+      "commandeDetails": "Commande Details",
+      "menu": "Menu"
+    }
+  }
+}

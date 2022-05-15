@@ -1,0 +1,55 @@
+{
+  "applications": "*",
+  "changelogDate": "20220515190942",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "commande_details",
+  "fields": [
+    {
+      "fieldName": "prix",
+      "fieldType": "Double"
+    },
+    {
+      "fieldName": "etat",
+      "fieldType": "String"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "CommandeDetails",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "commande",
+      "otherEntityRelationshipName": "commandeDetails",
+      "relationshipName": "commande",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "fastFood",
+      "otherEntityRelationshipName": "commandeDetails",
+      "relationshipName": "fastFood",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "plat",
+      "otherEntityRelationshipName": "commandeDetails",
+      "relationshipName": "plat",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "boissons",
+      "otherEntityRelationshipName": "commandeDetails",
+      "relationshipName": "boissons",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "dessert",
+      "otherEntityRelationshipName": "commandeDetails",
+      "relationshipName": "dessert",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "service": "serviceImpl"
+}

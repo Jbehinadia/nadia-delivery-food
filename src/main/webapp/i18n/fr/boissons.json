@@ -1,0 +1,31 @@
+{
+  "nadiaDeliveryFoodApp": {
+    "boissons": {
+      "home": {
+        "title": "Boissons",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Boissons",
+        "createOrEditLabel": "Créer ou éditer un Boissons",
+        "notFound": "Aucun Boissons trouvé"
+      },
+      "created": "Un nouveau Boissons a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Boissons avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Boissons avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Boissons {{ id }} ?"
+      },
+      "detail": {
+        "title": "Boissons"
+      },
+      "id": "ID",
+      "idBoissons": "Id Boissons",
+      "nomBoissons": "Nom Boissons",
+      "imagePath": "Image Path",
+      "prix": "Prix",
+      "remisePerc": "Remise Perc",
+      "remiceVal": "Remice Val",
+      "commandeDetails": "Commande Details",
+      "menu": "Menu"
+    }
+  }
+}

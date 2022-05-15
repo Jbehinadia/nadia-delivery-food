@@ -1,0 +1,30 @@
+{
+  "nadiaDeliveryFoodApp": {
+    "commandeDetails": {
+      "home": {
+        "title": "CommandeDetails",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Commande Details",
+        "createOrEditLabel": "Créer ou éditer un Commande Details",
+        "notFound": "Aucun Commande Details trouvé"
+      },
+      "created": "Un nouveau Commande Details a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Commande Details avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Commande Details avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Commande Details {{ id }} ?"
+      },
+      "detail": {
+        "title": "Commande Details"
+      },
+      "id": "ID",
+      "prix": "Prix",
+      "etat": "Etat",
+      "commande": "Commande",
+      "fastFood": "Fast Food",
+      "plat": "Plat",
+      "boissons": "Boissons",
+      "dessert": "Dessert"
+    }
+  }
+}

@@ -5,7 +5,6 @@
     <div class="d-flex justify-content-end">
       <button class="btn btn-info me-2" (click)="loadPage()" [disabled]="isLoading">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
-        <span jhiTranslate="nadiaDeliveryFoodApp.restaurant.home.refreshListLabel">Refresh List</span>
       </button>
 
       <button
@@ -15,14 +14,9 @@
         [routerLink]="['/restaurant/new']"
       >
         <fa-icon icon="plus"></fa-icon>
-        <span jhiTranslate="nadiaDeliveryFoodApp.restaurant.home.createLabel"> Create a new Restaurant </span>
       </button>
     </div>
   </h2>
-
-  <jhi-alert-error></jhi-alert-error>
-
-  <jhi-alert></jhi-alert>
 
   <div class="alert alert-warning" id="no-result" *ngIf="restaurants?.length === 0">
     <span jhiTranslate="nadiaDeliveryFoodApp.restaurant.home.notFound">No restaurants found</span>
@@ -32,24 +26,14 @@
     <table class="table table-striped" aria-describedby="page-heading">
       <thead>
         <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
-          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
-          <th scope="col" jhiSortBy="nomRestaurant">
-            <span jhiTranslate="nadiaDeliveryFoodApp.restaurant.nomRestaurant">Nom Restaurant</span> <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" jhiSortBy="adresseRestaurant">
-            <span jhiTranslate="nadiaDeliveryFoodApp.restaurant.adresseRestaurant">Adresse Restaurant</span> <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" jhiSortBy="numRestaurant">
-            <span jhiTranslate="nadiaDeliveryFoodApp.restaurant.numRestaurant">Num Restaurant</span> <fa-icon icon="sort"></fa-icon>
-          </th>
+          <th scope="col" jhiSortBy="nomRestaurant"><span>Nom </span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="adresseRestaurant"><span>Adresse </span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="numRestaurant"><span>Num </span> <fa-icon icon="sort"></fa-icon></th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let restaurant of restaurants; trackBy: trackId" data-cy="entityTable">
-          <td>
-            <a [routerLink]="['/restaurant', restaurant.id, 'view']">{{ restaurant.id }}</a>
-          </td>
           <td>{{ restaurant.nomRestaurant }}</td>
           <td>{{ restaurant.adresseRestaurant }}</td>
           <td>{{ restaurant.numRestaurant }}</td>
@@ -62,7 +46,6 @@
                 data-cy="entityDetailsButton"
               >
                 <fa-icon icon="eye"></fa-icon>
-                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
               </button>
 
               <button
@@ -72,12 +55,10 @@
                 data-cy="entityEditButton"
               >
                 <fa-icon icon="pencil-alt"></fa-icon>
-                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
               </button>
 
               <button type="submit" (click)="delete(restaurant)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
                 <fa-icon icon="times"></fa-icon>
-                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
               </button>
             </div>
           </td>

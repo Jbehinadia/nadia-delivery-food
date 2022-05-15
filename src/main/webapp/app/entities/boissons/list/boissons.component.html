@@ -1,11 +1,10 @@
 <div>
   <h2 id="page-heading" data-cy="BoissonsHeading">
-    <span jhiTranslate="nadiaDeliveryFoodApp.boissons.home.title">Boissons</span>
+    <span>Boissons</span>
 
     <div class="d-flex justify-content-end">
       <button class="btn btn-info me-2" (click)="loadPage()" [disabled]="isLoading">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
-        <span jhiTranslate="nadiaDeliveryFoodApp.boissons.home.refreshListLabel">Refresh List</span>
       </button>
 
       <button
@@ -15,7 +14,6 @@
         [routerLink]="['/boissons/new']"
       >
         <fa-icon icon="plus"></fa-icon>
-        <span jhiTranslate="nadiaDeliveryFoodApp.boissons.home.createLabel"> Create a new Boissons </span>
       </button>
     </div>
   </h2>
@@ -25,40 +23,24 @@
   <jhi-alert></jhi-alert>
 
   <div class="alert alert-warning" id="no-result" *ngIf="boissons?.length === 0">
-    <span jhiTranslate="nadiaDeliveryFoodApp.boissons.home.notFound">No boissons found</span>
+    <span>No boissons found</span>
   </div>
 
   <div class="table-responsive" id="entities" *ngIf="boissons && boissons.length > 0">
     <table class="table table-striped" aria-describedby="page-heading">
       <thead>
         <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
-          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
-          <th scope="col" jhiSortBy="nomBoissons">
-            <span jhiTranslate="nadiaDeliveryFoodApp.boissons.nomBoissons">Nom Boissons</span> <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" jhiSortBy="imagePath">
-            <span jhiTranslate="nadiaDeliveryFoodApp.boissons.imagePath">Image Path</span> <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" jhiSortBy="prix">
-            <span jhiTranslate="nadiaDeliveryFoodApp.boissons.prix">Prix</span> <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" jhiSortBy="remisePerc">
-            <span jhiTranslate="nadiaDeliveryFoodApp.boissons.remisePerc">Remise Perc</span> <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" jhiSortBy="remiceVal">
-            <span jhiTranslate="nadiaDeliveryFoodApp.boissons.remiceVal">Remice Val</span> <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" jhiSortBy="menu.id">
-            <span jhiTranslate="nadiaDeliveryFoodApp.boissons.menu">Menu</span> <fa-icon icon="sort"></fa-icon>
-          </th>
+          <th scope="col" jhiSortBy="nomBoissons"><span>Nom </span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="imagePath"><span>Image </span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="prix"><span>Prix</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="remisePerc"><span>Remise Perc</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="remiceVal"><span>Remice Val</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="menu.id"><span>Menu</span> <fa-icon icon="sort"></fa-icon></th>
           <th scope="col"></th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let boissons of boissons; trackBy: trackId" data-cy="entityTable">
-          <td>
-            <a [routerLink]="['/boissons', boissons.id, 'view']">{{ boissons.id }}</a>
-          </td>
           <td>{{ boissons.nomBoissons }}</td>
           <td>{{ boissons.imagePath }}</td>
           <td>{{ boissons.prix }}</td>
@@ -78,7 +60,6 @@
                 data-cy="entityDetailsButton"
               >
                 <fa-icon icon="eye"></fa-icon>
-                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
               </button>
 
               <button
@@ -88,12 +69,10 @@
                 data-cy="entityEditButton"
               >
                 <fa-icon icon="pencil-alt"></fa-icon>
-                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
               </button>
 
               <button type="submit" (click)="delete(boissons)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
                 <fa-icon icon="times"></fa-icon>
-                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
               </button>
             </div>
           </td>

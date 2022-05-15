@@ -1,26 +1,11 @@
 <div class="d-flex justify-content-center">
   <div class="col-8">
     <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
-      <h2
-        id="jhi-commande-heading"
-        data-cy="CommandeCreateUpdateHeading"
-        jhiTranslate="nadiaDeliveryFoodApp.commande.home.createOrEditLabel"
-      >
-        Create or edit a Commande
-      </h2>
+      <h2 id="jhi-commande-heading" data-cy="CommandeCreateUpdateHeading">Create or edit a Commande</h2>
 
       <div>
-        <jhi-alert-error></jhi-alert-error>
-
-        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
-          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
-          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
-        </div>
-
         <div class="row mb-3">
-          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.commande.adresseCommande" for="field_adresseCommande"
-            >Adresse Commande</label
-          >
+          <label class="form-label" for="field_adresseCommande">Adresse </label>
           <input
             type="text"
             class="form-control"
@@ -32,12 +17,12 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.commande.etat" for="field_etat">Etat</label>
+          <label class="form-label" for="field_etat">Etat</label>
           <input type="text" class="form-control" name="etat" id="field_etat" data-cy="etat" formControlName="etat" />
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.commande.dateCommande" for="field_dateCommande">Date Commande</label>
+          <label class="form-label" for="field_dateCommande">Date </label>
           <div class="d-flex">
             <input
               id="field_dateCommande"
@@ -52,12 +37,12 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.commande.prixTotal" for="field_prixTotal">Prix Total</label>
+          <label class="form-label" for="field_prixTotal">Prix Total</label>
           <input type="number" class="form-control" name="prixTotal" id="field_prixTotal" data-cy="prixTotal" formControlName="prixTotal" />
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.commande.remisePerc" for="field_remisePerc">Remise Perc</label>
+          <label class="form-label" for="field_remisePerc">Remise Perc</label>
           <input
             type="number"
             class="form-control"
@@ -69,12 +54,12 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.commande.remiceVal" for="field_remiceVal">Remice Val</label>
+          <label class="form-label" for="field_remiceVal">Remise Val</label>
           <input type="number" class="form-control" name="remiceVal" id="field_remiceVal" data-cy="remiceVal" formControlName="remiceVal" />
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.commande.prixLivreson" for="field_prixLivreson">Prix Livreson</label>
+          <label class="form-label" for="field_prixLivreson">Prix Livreson</label>
           <input
             type="number"
             class="form-control"
@@ -86,7 +71,7 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.commande.dateSortie" for="field_dateSortie">Date Sortie</label>
+          <label class="form-label" for="field_dateSortie">Date Sortie</label>
           <div class="d-flex">
             <input
               id="field_dateSortie"
@@ -101,7 +86,7 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.commande.livreur" for="field_livreur">Livreur</label>
+          <label class="form-label" for="field_livreur">Livreur</label>
           <select class="form-control" id="field_livreur" data-cy="livreur" name="livreur" formControlName="livreur">
             <option [ngValue]="null"></option>
             <option
@@ -114,7 +99,7 @@
         </div>
 
         <div class="row mb-3">
-          <label class="form-label" jhiTranslate="nadiaDeliveryFoodApp.commande.client" for="field_client">Client</label>
+          <label class="form-label" for="field_client">Client</label>
           <select class="form-control" id="field_client" data-cy="client" name="client" formControlName="client">
             <option [ngValue]="null"></option>
             <option
@@ -129,7 +114,7 @@
 
       <div>
         <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
-          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+          <fa-icon icon="ban"></fa-icon>
         </button>
 
         <button
@@ -139,7 +124,7 @@
           [disabled]="editForm.invalid || isSaving"
           class="btn btn-primary"
         >
-          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+          <fa-icon icon="save"></fa-icon>
         </button>
       </div>
     </form>

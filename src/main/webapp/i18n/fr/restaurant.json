@@ -18,9 +18,9 @@
         "title": "Restaurant"
       },
       "id": "ID",
-      "nomRestaurant": "Nom Restaurant",
-      "adresseRestaurant": "Adresse Restaurant",
-      "numRestaurant": "Num Restaurant",
+      "nomRestaurant": "Nom",
+      "adresseRestaurant": "Adresse",
+      "numRestaurant": "Num",
       "commande": "Commande"
     }
   }

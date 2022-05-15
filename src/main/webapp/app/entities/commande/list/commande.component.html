@@ -1,11 +1,10 @@
 <div>
   <h2 id="page-heading" data-cy="CommandeHeading">
-    <span jhiTranslate="nadiaDeliveryFoodApp.commande.home.title">Commandes</span>
+    <span>Commandes</span>
 
     <div class="d-flex justify-content-end">
       <button class="btn btn-info me-2" (click)="loadPage()" [disabled]="isLoading">
         <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
-        <span jhiTranslate="nadiaDeliveryFoodApp.commande.home.refreshListLabel">Refresh List</span>
       </button>
 
       <button
@@ -15,14 +14,9 @@
         [routerLink]="['/commande/new']"
       >
         <fa-icon icon="plus"></fa-icon>
-        <span jhiTranslate="nadiaDeliveryFoodApp.commande.home.createLabel"> Create a new Commande </span>
       </button>
     </div>
   </h2>
-
-  <jhi-alert-error></jhi-alert-error>
-
-  <jhi-alert></jhi-alert>
 
   <div class="alert alert-warning" id="no-result" *ngIf="commandes?.length === 0">
     <span jhiTranslate="nadiaDeliveryFoodApp.commande.home.notFound">No commandes found</span>
@@ -32,37 +26,16 @@
     <table class="table table-striped" aria-describedby="page-heading">
       <thead>
         <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
-          <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
-          <th scope="col" jhiSortBy="adresseCommande">
-            <span jhiTranslate="nadiaDeliveryFoodApp.commande.adresseCommande">Adresse Commande</span> <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" jhiSortBy="etat">
-            <span jhiTranslate="nadiaDeliveryFoodApp.commande.etat">Etat</span> <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" jhiSortBy="dateCommande">
-            <span jhiTranslate="nadiaDeliveryFoodApp.commande.dateCommande">Date Commande</span> <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" jhiSortBy="prixTotal">
-            <span jhiTranslate="nadiaDeliveryFoodApp.commande.prixTotal">Prix Total</span> <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" jhiSortBy="remisePerc">
-            <span jhiTranslate="nadiaDeliveryFoodApp.commande.remisePerc">Remise Perc</span> <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" jhiSortBy="remiceVal">
-            <span jhiTranslate="nadiaDeliveryFoodApp.commande.remiceVal">Remice Val</span> <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" jhiSortBy="prixLivreson">
-            <span jhiTranslate="nadiaDeliveryFoodApp.commande.prixLivreson">Prix Livreson</span> <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" jhiSortBy="dateSortie">
-            <span jhiTranslate="nadiaDeliveryFoodApp.commande.dateSortie">Date Sortie</span> <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" jhiSortBy="livreur.id">
-            <span jhiTranslate="nadiaDeliveryFoodApp.commande.livreur">Livreur</span> <fa-icon icon="sort"></fa-icon>
-          </th>
-          <th scope="col" jhiSortBy="client.id">
-            <span jhiTranslate="nadiaDeliveryFoodApp.commande.client">Client</span> <fa-icon icon="sort"></fa-icon>
-          </th>
+          <th scope="col" jhiSortBy="adresseCommande"><span>Adresse </span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="etat"><span>Etat</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="dateCommande"><span>Date </span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="prixTotal"><span>Prix Total</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="remisePerc"><span>Remise Perc</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="remiceVal"><span>Remise Val</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="prixLivreson"><span>Prix Livreson</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="dateSortie"><span>Date Sortie</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="livreur.id"><span>Livreur</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="client.id"><span>Client</span> <fa-icon icon="sort"></fa-icon></th>
           <th scope="col"></th>
         </tr>
       </thead>
@@ -98,7 +71,6 @@
                 data-cy="entityDetailsButton"
               >
                 <fa-icon icon="eye"></fa-icon>
-                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
               </button>
 
               <button
@@ -108,12 +80,10 @@
                 data-cy="entityEditButton"
               >
                 <fa-icon icon="pencil-alt"></fa-icon>
-                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
               </button>
 
               <button type="submit" (click)="delete(commande)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
                 <fa-icon icon="times"></fa-icon>
-                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
               </button>
             </div>
           </td>

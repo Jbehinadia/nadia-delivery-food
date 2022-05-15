@@ -18,10 +18,10 @@
         "title": "Client"
       },
       "id": "ID",
-      "nomClient": "Nom Client",
-      "prenomClient": "Prenom Client",
-      "adresseClient": "Adresse Client",
-      "numClient": "Num Client",
+      "nomClient": "Nom",
+      "prenomClient": "Prenom",
+      "adresseClient": "Adresse",
+      "numClient": "Num",
       "commande": "Commande"
     }
   }

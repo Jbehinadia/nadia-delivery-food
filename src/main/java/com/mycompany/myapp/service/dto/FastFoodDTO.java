@@ -10,8 +10,6 @@ public class FastFoodDTO implements Serializable {
 
     private Long id;
 
-    private String idFood;
-
     private String nomFood;
 
     private String imagePath;
@@ -30,14 +28,6 @@ public class FastFoodDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getIdFood() {
-        return idFood;
-    }
-
-    public void setIdFood(String idFood) {
-        this.idFood = idFood;
     }
 
     public String getNomFood() {
@@ -114,7 +104,6 @@ public class FastFoodDTO implements Serializable {
     public String toString() {
         return "FastFoodDTO{" +
             "id=" + getId() +
-            ", idFood='" + getIdFood() + "'" +
             ", nomFood='" + getNomFood() + "'" +
             ", imagePath='" + getImagePath() + "'" +
             ", prix=" + getPrix() +

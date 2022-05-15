@@ -25,7 +25,6 @@ public class BoissonsRowMapper implements BiFunction<Row, String, Boissons> {
     public Boissons apply(Row row, String prefix) {
         Boissons entity = new Boissons();
         entity.setId(converter.fromRow(row, prefix + "_id", Long.class));
-        entity.setIdBoissons(converter.fromRow(row, prefix + "_id_boissons", String.class));
         entity.setNomBoissons(converter.fromRow(row, prefix + "_nom_boissons", String.class));
         entity.setImagePath(converter.fromRow(row, prefix + "_image_path", String.class));
         entity.setPrix(converter.fromRow(row, prefix + "_prix", Double.class));

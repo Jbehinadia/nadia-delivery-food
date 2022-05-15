@@ -11,7 +11,6 @@ public class LivreurSqlHelper {
     public static List<Expression> getColumns(Table table, String columnPrefix) {
         List<Expression> columns = new ArrayList<>();
         columns.add(Column.aliased("id", table, columnPrefix + "_id"));
-        columns.add(Column.aliased("id_livreur", table, columnPrefix + "_id_livreur"));
         columns.add(Column.aliased("nom_livreur", table, columnPrefix + "_nom_livreur"));
         columns.add(Column.aliased("prenom_livreur", table, columnPrefix + "_prenom_livreur"));
         columns.add(Column.aliased("adresse_livreur", table, columnPrefix + "_adresse_livreur"));

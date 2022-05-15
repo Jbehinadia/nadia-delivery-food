@@ -25,7 +25,6 @@ public class ClientRowMapper implements BiFunction<Row, String, Client> {
     public Client apply(Row row, String prefix) {
         Client entity = new Client();
         entity.setId(converter.fromRow(row, prefix + "_id", Long.class));
-        entity.setIdClient(converter.fromRow(row, prefix + "_id_client", String.class));
         entity.setNomClient(converter.fromRow(row, prefix + "_nom_client", String.class));
         entity.setPrenomClient(converter.fromRow(row, prefix + "_prenom_client", String.class));
         entity.setAdresseClient(converter.fromRow(row, prefix + "_adresse_client", String.class));

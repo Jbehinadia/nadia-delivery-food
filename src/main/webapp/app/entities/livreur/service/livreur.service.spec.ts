@@ -21,7 +21,6 @@ describe('Livreur Service', () => {
 
     elemDefault = {
       id: 0,
-      idLivreur: 'AAAAAAA',
       nomLivreur: 'AAAAAAA',
       prenomLivreur: 'AAAAAAA',
       adresseLivreur: 'AAAAAAA',
@@ -61,7 +60,6 @@ describe('Livreur Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 1,
-          idLivreur: 'BBBBBB',
           nomLivreur: 'BBBBBB',
           prenomLivreur: 'BBBBBB',
           adresseLivreur: 'BBBBBB',
@@ -82,9 +80,9 @@ describe('Livreur Service', () => {
     it('should partial update a Livreur', () => {
       const patchObject = Object.assign(
         {
-          idLivreur: 'BBBBBB',
-          prenomLivreur: 'BBBBBB',
+          nomLivreur: 'BBBBBB',
           adresseLivreur: 'BBBBBB',
+          numLivreur: 'BBBBBB',
         },
         new Livreur()
       );
@@ -104,7 +102,6 @@ describe('Livreur Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 1,
-          idLivreur: 'BBBBBB',
           nomLivreur: 'BBBBBB',
           prenomLivreur: 'BBBBBB',
           adresseLivreur: 'BBBBBB',
@@ -160,7 +157,7 @@ describe('Livreur Service', () => {
       });
 
       it('should add only unique Livreur to an array', () => {
-        const livreurArray: ILivreur[] = [{ id: 123 }, { id: 456 }, { id: 83422 }];
+        const livreurArray: ILivreur[] = [{ id: 123 }, { id: 456 }, { id: 3467 }];
         const livreurCollection: ILivreur[] = [{ id: 123 }];
         expectedResult = service.addLivreurToCollectionIfMissing(livreurCollection, ...livreurArray);
         expect(expectedResult).toHaveLength(3);

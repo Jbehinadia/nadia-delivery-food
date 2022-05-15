@@ -18,7 +18,6 @@
         "title": "Responsable Restaurant"
       },
       "id": "ID",
-      "idResponsable": "Id Responsable",
       "nomResponsable": "Nom Responsable",
       "prenomResponsable": "Prenom Responsable",
       "adresseResponsable": "Adresse Responsable",

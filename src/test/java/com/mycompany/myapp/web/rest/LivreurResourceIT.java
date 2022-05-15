@@ -34,9 +34,6 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 @WithMockUser
 class LivreurResourceIT {
 
-    private static final String DEFAULT_ID_LIVREUR = "AAAAAAAAAA";
-    private static final String UPDATED_ID_LIVREUR = "BBBBBBBBBB";
-
     private static final String DEFAULT_NOM_LIVREUR = "AAAAAAAAAA";
     private static final String UPDATED_NOM_LIVREUR = "BBBBBBBBBB";
 
@@ -77,7 +74,6 @@ class LivreurResourceIT {
      */
     public static Livreur createEntity(EntityManager em) {
         Livreur livreur = new Livreur()
-            .idLivreur(DEFAULT_ID_LIVREUR)
             .nomLivreur(DEFAULT_NOM_LIVREUR)
             .prenomLivreur(DEFAULT_PRENOM_LIVREUR)
             .adresseLivreur(DEFAULT_ADRESSE_LIVREUR)
@@ -93,7 +89,6 @@ class LivreurResourceIT {
      */
     public static Livreur createUpdatedEntity(EntityManager em) {
         Livreur livreur = new Livreur()
-            .idLivreur(UPDATED_ID_LIVREUR)
             .nomLivreur(UPDATED_NOM_LIVREUR)
             .prenomLivreur(UPDATED_PRENOM_LIVREUR)
             .adresseLivreur(UPDATED_ADRESSE_LIVREUR)
@@ -138,7 +133,6 @@ class LivreurResourceIT {
         List<Livreur> livreurList = livreurRepository.findAll().collectList().block();
         assertThat(livreurList).hasSize(databaseSizeBeforeCreate + 1);
         Livreur testLivreur = livreurList.get(livreurList.size() - 1);
-        assertThat(testLivreur.getIdLivreur()).isEqualTo(DEFAULT_ID_LIVREUR);
         assertThat(testLivreur.getNomLivreur()).isEqualTo(DEFAULT_NOM_LIVREUR);
         assertThat(testLivreur.getPrenomLivreur()).isEqualTo(DEFAULT_PRENOM_LIVREUR);
         assertThat(testLivreur.getAdresseLivreur()).isEqualTo(DEFAULT_ADRESSE_LIVREUR);
@@ -186,8 +180,6 @@ class LivreurResourceIT {
             .expectBody()
             .jsonPath("$.[*].id")
             .value(hasItem(livreur.getId().intValue()))
-            .jsonPath("$.[*].idLivreur")
-            .value(hasItem(DEFAULT_ID_LIVREUR))
             .jsonPath("$.[*].nomLivreur")
             .value(hasItem(DEFAULT_NOM_LIVREUR))
             .jsonPath("$.[*].prenomLivreur")
@@ -216,8 +208,6 @@ class LivreurResourceIT {
             .expectBody()
             .jsonPath("$.id")
             .value(is(livreur.getId().intValue()))
-            .jsonPath("$.idLivreur")
-            .value(is(DEFAULT_ID_LIVREUR))
             .jsonPath("$.nomLivreur")
             .value(is(DEFAULT_NOM_LIVREUR))
             .jsonPath("$.prenomLivreur")
@@ -250,7 +240,6 @@ class LivreurResourceIT {
         // Update the livreur
         Livreur updatedLivreur = livreurRepository.findById(livreur.getId()).block();
         updatedLivreur
-            .idLivreur(UPDATED_ID_LIVREUR)
             .nomLivreur(UPDATED_NOM_LIVREUR)
             .prenomLivreur(UPDATED_PRENOM_LIVREUR)
             .adresseLivreur(UPDATED_ADRESSE_LIVREUR)
@@ -270,7 +259,6 @@ class LivreurResourceIT {
         List<Livreur> livreurList = livreurRepository.findAll().collectList().block();
         assertThat(livreurList).hasSize(databaseSizeBeforeUpdate);
         Livreur testLivreur = livreurList.get(livreurList.size() - 1);
-        assertThat(testLivreur.getIdLivreur()).isEqualTo(UPDATED_ID_LIVREUR);
         assertThat(testLivreur.getNomLivreur()).isEqualTo(UPDATED_NOM_LIVREUR);
         assertThat(testLivreur.getPrenomLivreur()).isEqualTo(UPDATED_PRENOM_LIVREUR);
         assertThat(testLivreur.getAdresseLivreur()).isEqualTo(UPDATED_ADRESSE_LIVREUR);
@@ -357,7 +345,7 @@ class LivreurResourceIT {
         Livreur partialUpdatedLivreur = new Livreur();
         partialUpdatedLivreur.setId(livreur.getId());
 
-        partialUpdatedLivreur.idLivreur(UPDATED_ID_LIVREUR).numLivreur(UPDATED_NUM_LIVREUR);
+        partialUpdatedLivreur.nomLivreur(UPDATED_NOM_LIVREUR);
 
         webTestClient
             .patch()
@@ -372,11 +360,10 @@ class LivreurResourceIT {
         List<Livreur> livreurList = livreurRepository.findAll().collectList().block();
         assertThat(livreurList).hasSize(databaseSizeBeforeUpdate);
         Livreur testLivreur = livreurList.get(livreurList.size() - 1);
-        assertThat(testLivreur.getIdLivreur()).isEqualTo(UPDATED_ID_LIVREUR);
-        assertThat(testLivreur.getNomLivreur()).isEqualTo(DEFAULT_NOM_LIVREUR);
+        assertThat(testLivreur.getNomLivreur()).isEqualTo(UPDATED_NOM_LIVREUR);
         assertThat(testLivreur.getPrenomLivreur()).isEqualTo(DEFAULT_PRENOM_LIVREUR);
         assertThat(testLivreur.getAdresseLivreur()).isEqualTo(DEFAULT_ADRESSE_LIVREUR);
-        assertThat(testLivreur.getNumLivreur()).isEqualTo(UPDATED_NUM_LIVREUR);
+        assertThat(testLivreur.getNumLivreur()).isEqualTo(DEFAULT_NUM_LIVREUR);
     }
 
     @Test
@@ -391,7 +378,6 @@ class LivreurResourceIT {
         partialUpdatedLivreur.setId(livreur.getId());
 
         partialUpdatedLivreur
-            .idLivreur(UPDATED_ID_LIVREUR)
             .nomLivreur(UPDATED_NOM_LIVREUR)
             .prenomLivreur(UPDATED_PRENOM_LIVREUR)
             .adresseLivreur(UPDATED_ADRESSE_LIVREUR)
@@ -410,7 +396,6 @@ class LivreurResourceIT {
         List<Livreur> livreurList = livreurRepository.findAll().collectList().block();
         assertThat(livreurList).hasSize(databaseSizeBeforeUpdate);
         Livreur testLivreur = livreurList.get(livreurList.size() - 1);
-        assertThat(testLivreur.getIdLivreur()).isEqualTo(UPDATED_ID_LIVREUR);
         assertThat(testLivreur.getNomLivreur()).isEqualTo(UPDATED_NOM_LIVREUR);
         assertThat(testLivreur.getPrenomLivreur()).isEqualTo(UPDATED_PRENOM_LIVREUR);
         assertThat(testLivreur.getAdresseLivreur()).isEqualTo(UPDATED_ADRESSE_LIVREUR);

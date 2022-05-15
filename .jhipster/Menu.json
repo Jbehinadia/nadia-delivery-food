@@ -6,10 +6,6 @@
   "entityTableName": "menu",
   "fields": [
     {
-      "fieldName": "idMenu",
-      "fieldType": "String"
-    },
-    {
       "fieldName": "nomMenu",
       "fieldType": "String"
     }

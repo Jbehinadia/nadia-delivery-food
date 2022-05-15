@@ -18,7 +18,6 @@
         "title": "Dessert"
       },
       "id": "ID",
-      "idDessert": "Id Dessert",
       "nomDessert": "Nom Dessert",
       "imagePath": "Image Path",
       "prix": "Prix",

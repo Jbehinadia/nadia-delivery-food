@@ -34,9 +34,6 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 @WithMockUser
 class PlatResourceIT {
 
-    private static final String DEFAULT_ID_PLAT = "AAAAAAAAAA";
-    private static final String UPDATED_ID_PLAT = "BBBBBBBBBB";
-
     private static final String DEFAULT_NOM_PLAT = "AAAAAAAAAA";
     private static final String UPDATED_NOM_PLAT = "BBBBBBBBBB";
 
@@ -80,7 +77,6 @@ class PlatResourceIT {
      */
     public static Plat createEntity(EntityManager em) {
         Plat plat = new Plat()
-            .idPlat(DEFAULT_ID_PLAT)
             .nomPlat(DEFAULT_NOM_PLAT)
             .imagePath(DEFAULT_IMAGE_PATH)
             .prix(DEFAULT_PRIX)
@@ -97,7 +93,6 @@ class PlatResourceIT {
      */
     public static Plat createUpdatedEntity(EntityManager em) {
         Plat plat = new Plat()
-            .idPlat(UPDATED_ID_PLAT)
             .nomPlat(UPDATED_NOM_PLAT)
             .imagePath(UPDATED_IMAGE_PATH)
             .prix(UPDATED_PRIX)
@@ -143,7 +138,6 @@ class PlatResourceIT {
         List<Plat> platList = platRepository.findAll().collectList().block();
         assertThat(platList).hasSize(databaseSizeBeforeCreate + 1);
         Plat testPlat = platList.get(platList.size() - 1);
-        assertThat(testPlat.getIdPlat()).isEqualTo(DEFAULT_ID_PLAT);
         assertThat(testPlat.getNomPlat()).isEqualTo(DEFAULT_NOM_PLAT);
         assertThat(testPlat.getImagePath()).isEqualTo(DEFAULT_IMAGE_PATH);
         assertThat(testPlat.getPrix()).isEqualTo(DEFAULT_PRIX);
@@ -192,8 +186,6 @@ class PlatResourceIT {
             .expectBody()
             .jsonPath("$.[*].id")
             .value(hasItem(plat.getId().intValue()))
-            .jsonPath("$.[*].idPlat")
-            .value(hasItem(DEFAULT_ID_PLAT))
             .jsonPath("$.[*].nomPlat")
             .value(hasItem(DEFAULT_NOM_PLAT))
             .jsonPath("$.[*].imagePath")
@@ -224,8 +216,6 @@ class PlatResourceIT {
             .expectBody()
             .jsonPath("$.id")
             .value(is(plat.getId().intValue()))
-            .jsonPath("$.idPlat")
-            .value(is(DEFAULT_ID_PLAT))
             .jsonPath("$.nomPlat")
             .value(is(DEFAULT_NOM_PLAT))
             .jsonPath("$.imagePath")
@@ -260,7 +250,6 @@ class PlatResourceIT {
         // Update the plat
         Plat updatedPlat = platRepository.findById(plat.getId()).block();
         updatedPlat
-            .idPlat(UPDATED_ID_PLAT)
             .nomPlat(UPDATED_NOM_PLAT)
             .imagePath(UPDATED_IMAGE_PATH)
             .prix(UPDATED_PRIX)
@@ -281,7 +270,6 @@ class PlatResourceIT {
         List<Plat> platList = platRepository.findAll().collectList().block();
         assertThat(platList).hasSize(databaseSizeBeforeUpdate);
         Plat testPlat = platList.get(platList.size() - 1);
-        assertThat(testPlat.getIdPlat()).isEqualTo(UPDATED_ID_PLAT);
         assertThat(testPlat.getNomPlat()).isEqualTo(UPDATED_NOM_PLAT);
         assertThat(testPlat.getImagePath()).isEqualTo(UPDATED_IMAGE_PATH);
         assertThat(testPlat.getPrix()).isEqualTo(UPDATED_PRIX);
@@ -370,7 +358,6 @@ class PlatResourceIT {
         partialUpdatedPlat.setId(plat.getId());
 
         partialUpdatedPlat
-            .idPlat(UPDATED_ID_PLAT)
             .nomPlat(UPDATED_NOM_PLAT)
             .imagePath(UPDATED_IMAGE_PATH)
             .prix(UPDATED_PRIX)
@@ -390,7 +377,6 @@ class PlatResourceIT {
         List<Plat> platList = platRepository.findAll().collectList().block();
         assertThat(platList).hasSize(databaseSizeBeforeUpdate);
         Plat testPlat = platList.get(platList.size() - 1);
-        assertThat(testPlat.getIdPlat()).isEqualTo(UPDATED_ID_PLAT);
         assertThat(testPlat.getNomPlat()).isEqualTo(UPDATED_NOM_PLAT);
         assertThat(testPlat.getImagePath()).isEqualTo(UPDATED_IMAGE_PATH);
         assertThat(testPlat.getPrix()).isEqualTo(UPDATED_PRIX);
@@ -410,7 +396,6 @@ class PlatResourceIT {
         partialUpdatedPlat.setId(plat.getId());
 
         partialUpdatedPlat
-            .idPlat(UPDATED_ID_PLAT)
             .nomPlat(UPDATED_NOM_PLAT)
             .imagePath(UPDATED_IMAGE_PATH)
             .prix(UPDATED_PRIX)
@@ -430,7 +415,6 @@ class PlatResourceIT {
         List<Plat> platList = platRepository.findAll().collectList().block();
         assertThat(platList).hasSize(databaseSizeBeforeUpdate);
         Plat testPlat = platList.get(platList.size() - 1);
-        assertThat(testPlat.getIdPlat()).isEqualTo(UPDATED_ID_PLAT);
         assertThat(testPlat.getNomPlat()).isEqualTo(UPDATED_NOM_PLAT);
         assertThat(testPlat.getImagePath()).isEqualTo(UPDATED_IMAGE_PATH);
         assertThat(testPlat.getPrix()).isEqualTo(UPDATED_PRIX);

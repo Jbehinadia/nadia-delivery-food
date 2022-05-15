@@ -19,9 +19,6 @@ public class ResponsableRestaurant implements Serializable {
     @Column("id")
     private Long id;
 
-    @Column("id_responsable")
-    private String idResponsable;
-
     @Column("nom_responsable")
     private String nomResponsable;
 
@@ -53,19 +50,6 @@ public class ResponsableRestaurant implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getIdResponsable() {
-        return this.idResponsable;
-    }
-
-    public ResponsableRestaurant idResponsable(String idResponsable) {
-        this.setIdResponsable(idResponsable);
-        return this;
-    }
-
-    public void setIdResponsable(String idResponsable) {
-        this.idResponsable = idResponsable;
     }
 
     public String getNomResponsable() {
@@ -166,7 +150,6 @@ public class ResponsableRestaurant implements Serializable {
     public String toString() {
         return "ResponsableRestaurant{" +
             "id=" + getId() +
-            ", idResponsable='" + getIdResponsable() + "'" +
             ", nomResponsable='" + getNomResponsable() + "'" +
             ", prenomResponsable='" + getPrenomResponsable() + "'" +
             ", adresseResponsable='" + getAdresseResponsable() + "'" +

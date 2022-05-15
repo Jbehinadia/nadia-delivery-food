@@ -18,7 +18,6 @@
         "title": "Fast Food"
       },
       "id": "ID",
-      "idFood": "Id Food",
       "nomFood": "Nom Food",
       "imagePath": "Image Path",
       "prix": "Prix",

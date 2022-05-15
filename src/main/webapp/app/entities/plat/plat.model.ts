@@ -3,7 +3,6 @@ import { IMenu } from 'app/entities/menu/menu.model';
 
 export interface IPlat {
   id?: number;
-  idPlat?: string | null;
   nomPlat?: string | null;
   imagePath?: string | null;
   prix?: number | null;
@@ -16,7 +15,6 @@ export interface IPlat {
 export class Plat implements IPlat {
   constructor(
     public id?: number,
-    public idPlat?: string | null,
     public nomPlat?: string | null,
     public imagePath?: string | null,
     public prix?: number | null,

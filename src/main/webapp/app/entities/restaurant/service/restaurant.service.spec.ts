@@ -21,7 +21,6 @@ describe('Restaurant Service', () => {
 
     elemDefault = {
       id: 0,
-      idRestaurant: 'AAAAAAA',
       nomRestaurant: 'AAAAAAA',
       adresseRestaurant: 'AAAAAAA',
       numRestaurant: 'AAAAAAA',
@@ -60,7 +59,6 @@ describe('Restaurant Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 1,
-          idRestaurant: 'BBBBBB',
           nomRestaurant: 'BBBBBB',
           adresseRestaurant: 'BBBBBB',
           numRestaurant: 'BBBBBB',
@@ -80,8 +78,7 @@ describe('Restaurant Service', () => {
     it('should partial update a Restaurant', () => {
       const patchObject = Object.assign(
         {
-          idRestaurant: 'BBBBBB',
-          numRestaurant: 'BBBBBB',
+          nomRestaurant: 'BBBBBB',
         },
         new Restaurant()
       );
@@ -101,7 +98,6 @@ describe('Restaurant Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 1,
-          idRestaurant: 'BBBBBB',
           nomRestaurant: 'BBBBBB',
           adresseRestaurant: 'BBBBBB',
           numRestaurant: 'BBBBBB',
@@ -156,7 +152,7 @@ describe('Restaurant Service', () => {
       });
 
       it('should add only unique Restaurant to an array', () => {
-        const restaurantArray: IRestaurant[] = [{ id: 123 }, { id: 456 }, { id: 3696 }];
+        const restaurantArray: IRestaurant[] = [{ id: 123 }, { id: 456 }, { id: 98521 }];
         const restaurantCollection: IRestaurant[] = [{ id: 123 }];
         expectedResult = service.addRestaurantToCollectionIfMissing(restaurantCollection, ...restaurantArray);
         expect(expectedResult).toHaveLength(3);

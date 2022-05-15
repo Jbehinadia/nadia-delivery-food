@@ -11,7 +11,6 @@ public class ResponsableRestaurantSqlHelper {
     public static List<Expression> getColumns(Table table, String columnPrefix) {
         List<Expression> columns = new ArrayList<>();
         columns.add(Column.aliased("id", table, columnPrefix + "_id"));
-        columns.add(Column.aliased("id_responsable", table, columnPrefix + "_id_responsable"));
         columns.add(Column.aliased("nom_responsable", table, columnPrefix + "_nom_responsable"));
         columns.add(Column.aliased("prenom_responsable", table, columnPrefix + "_prenom_responsable"));
         columns.add(Column.aliased("adresse_responsable", table, columnPrefix + "_adresse_responsable"));

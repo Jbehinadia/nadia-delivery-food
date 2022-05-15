@@ -21,9 +21,6 @@ public class Dessert implements Serializable {
     @Column("id")
     private Long id;
 
-    @Column("id_dessert")
-    private String idDessert;
-
     @Column("nom_dessert")
     private String nomDessert;
 
@@ -63,19 +60,6 @@ public class Dessert implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getIdDessert() {
-        return this.idDessert;
-    }
-
-    public Dessert idDessert(String idDessert) {
-        this.setIdDessert(idDessert);
-        return this;
-    }
-
-    public void setIdDessert(String idDessert) {
-        this.idDessert = idDessert;
     }
 
     public String getNomDessert() {
@@ -220,7 +204,6 @@ public class Dessert implements Serializable {
     public String toString() {
         return "Dessert{" +
             "id=" + getId() +
-            ", idDessert='" + getIdDessert() + "'" +
             ", nomDessert='" + getNomDessert() + "'" +
             ", imagePath='" + getImagePath() + "'" +
             ", prix=" + getPrix() +

@@ -3,7 +3,6 @@ import { IMenu } from 'app/entities/menu/menu.model';
 
 export interface IDessert {
   id?: number;
-  idDessert?: string | null;
   nomDessert?: string | null;
   imagePath?: string | null;
   prix?: number | null;
@@ -16,7 +15,6 @@ export interface IDessert {
 export class Dessert implements IDessert {
   constructor(
     public id?: number,
-    public idDessert?: string | null,
     public nomDessert?: string | null,
     public imagePath?: string | null,
     public prix?: number | null,

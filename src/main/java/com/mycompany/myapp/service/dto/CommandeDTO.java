@@ -11,8 +11,6 @@ public class CommandeDTO implements Serializable {
 
     private Long id;
 
-    private String idCommande;
-
     private String adresseCommande;
 
     private String etat;
@@ -39,14 +37,6 @@ public class CommandeDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getIdCommande() {
-        return idCommande;
-    }
-
-    public void setIdCommande(String idCommande) {
-        this.idCommande = idCommande;
     }
 
     public String getAdresseCommande() {
@@ -155,7 +145,6 @@ public class CommandeDTO implements Serializable {
     public String toString() {
         return "CommandeDTO{" +
             "id=" + getId() +
-            ", idCommande='" + getIdCommande() + "'" +
             ", adresseCommande='" + getAdresseCommande() + "'" +
             ", etat='" + getEtat() + "'" +
             ", dateCommande='" + getDateCommande() + "'" +

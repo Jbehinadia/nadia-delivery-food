@@ -21,9 +21,6 @@ public class Boissons implements Serializable {
     @Column("id")
     private Long id;
 
-    @Column("id_boissons")
-    private String idBoissons;
-
     @Column("nom_boissons")
     private String nomBoissons;
 
@@ -63,19 +60,6 @@ public class Boissons implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getIdBoissons() {
-        return this.idBoissons;
-    }
-
-    public Boissons idBoissons(String idBoissons) {
-        this.setIdBoissons(idBoissons);
-        return this;
-    }
-
-    public void setIdBoissons(String idBoissons) {
-        this.idBoissons = idBoissons;
     }
 
     public String getNomBoissons() {
@@ -220,7 +204,6 @@ public class Boissons implements Serializable {
     public String toString() {
         return "Boissons{" +
             "id=" + getId() +
-            ", idBoissons='" + getIdBoissons() + "'" +
             ", nomBoissons='" + getNomBoissons() + "'" +
             ", imagePath='" + getImagePath() + "'" +
             ", prix=" + getPrix() +

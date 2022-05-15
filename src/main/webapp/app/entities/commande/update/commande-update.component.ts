@@ -27,7 +27,6 @@ export class CommandeUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idCommande: [],
     adresseCommande: [],
     etat: [],
     dateCommande: [],
@@ -106,7 +105,6 @@ export class CommandeUpdateComponent implements OnInit {
   protected updateForm(commande: ICommande): void {
     this.editForm.patchValue({
       id: commande.id,
-      idCommande: commande.idCommande,
       adresseCommande: commande.adresseCommande,
       etat: commande.etat,
       dateCommande: commande.dateCommande ? commande.dateCommande.format(DATE_TIME_FORMAT) : null,
@@ -143,7 +141,6 @@ export class CommandeUpdateComponent implements OnInit {
     return {
       ...new Commande(),
       id: this.editForm.get(['id'])!.value,
-      idCommande: this.editForm.get(['idCommande'])!.value,
       adresseCommande: this.editForm.get(['adresseCommande'])!.value,
       etat: this.editForm.get(['etat'])!.value,
       dateCommande: this.editForm.get(['dateCommande'])!.value

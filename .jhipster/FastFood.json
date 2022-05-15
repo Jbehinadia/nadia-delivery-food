@@ -6,10 +6,6 @@
   "entityTableName": "fast_food",
   "fields": [
     {
-      "fieldName": "idFood",
-      "fieldType": "String"
-    },
-    {
       "fieldName": "nomFood",
       "fieldType": "String"
     },

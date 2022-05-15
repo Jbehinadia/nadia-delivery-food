@@ -34,9 +34,6 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 @WithMockUser
 class ResponsableRestaurantResourceIT {
 
-    private static final String DEFAULT_ID_RESPONSABLE = "AAAAAAAAAA";
-    private static final String UPDATED_ID_RESPONSABLE = "BBBBBBBBBB";
-
     private static final String DEFAULT_NOM_RESPONSABLE = "AAAAAAAAAA";
     private static final String UPDATED_NOM_RESPONSABLE = "BBBBBBBBBB";
 
@@ -77,7 +74,6 @@ class ResponsableRestaurantResourceIT {
      */
     public static ResponsableRestaurant createEntity(EntityManager em) {
         ResponsableRestaurant responsableRestaurant = new ResponsableRestaurant()
-            .idResponsable(DEFAULT_ID_RESPONSABLE)
             .nomResponsable(DEFAULT_NOM_RESPONSABLE)
             .prenomResponsable(DEFAULT_PRENOM_RESPONSABLE)
             .adresseResponsable(DEFAULT_ADRESSE_RESPONSABLE)
@@ -93,7 +89,6 @@ class ResponsableRestaurantResourceIT {
      */
     public static ResponsableRestaurant createUpdatedEntity(EntityManager em) {
         ResponsableRestaurant responsableRestaurant = new ResponsableRestaurant()
-            .idResponsable(UPDATED_ID_RESPONSABLE)
             .nomResponsable(UPDATED_NOM_RESPONSABLE)
             .prenomResponsable(UPDATED_PRENOM_RESPONSABLE)
             .adresseResponsable(UPDATED_ADRESSE_RESPONSABLE)
@@ -138,7 +133,6 @@ class ResponsableRestaurantResourceIT {
         List<ResponsableRestaurant> responsableRestaurantList = responsableRestaurantRepository.findAll().collectList().block();
         assertThat(responsableRestaurantList).hasSize(databaseSizeBeforeCreate + 1);
         ResponsableRestaurant testResponsableRestaurant = responsableRestaurantList.get(responsableRestaurantList.size() - 1);
-        assertThat(testResponsableRestaurant.getIdResponsable()).isEqualTo(DEFAULT_ID_RESPONSABLE);
         assertThat(testResponsableRestaurant.getNomResponsable()).isEqualTo(DEFAULT_NOM_RESPONSABLE);
         assertThat(testResponsableRestaurant.getPrenomResponsable()).isEqualTo(DEFAULT_PRENOM_RESPONSABLE);
         assertThat(testResponsableRestaurant.getAdresseResponsable()).isEqualTo(DEFAULT_ADRESSE_RESPONSABLE);
@@ -186,8 +180,6 @@ class ResponsableRestaurantResourceIT {
             .expectBody()
             .jsonPath("$.[*].id")
             .value(hasItem(responsableRestaurant.getId().intValue()))
-            .jsonPath("$.[*].idResponsable")
-            .value(hasItem(DEFAULT_ID_RESPONSABLE))
             .jsonPath("$.[*].nomResponsable")
             .value(hasItem(DEFAULT_NOM_RESPONSABLE))
             .jsonPath("$.[*].prenomResponsable")
@@ -216,8 +208,6 @@ class ResponsableRestaurantResourceIT {
             .expectBody()
             .jsonPath("$.id")
             .value(is(responsableRestaurant.getId().intValue()))
-            .jsonPath("$.idResponsable")
-            .value(is(DEFAULT_ID_RESPONSABLE))
             .jsonPath("$.nomResponsable")
             .value(is(DEFAULT_NOM_RESPONSABLE))
             .jsonPath("$.prenomResponsable")
@@ -252,7 +242,6 @@ class ResponsableRestaurantResourceIT {
             .findById(responsableRestaurant.getId())
             .block();
         updatedResponsableRestaurant
-            .idResponsable(UPDATED_ID_RESPONSABLE)
             .nomResponsable(UPDATED_NOM_RESPONSABLE)
             .prenomResponsable(UPDATED_PRENOM_RESPONSABLE)
             .adresseResponsable(UPDATED_ADRESSE_RESPONSABLE)
@@ -272,7 +261,6 @@ class ResponsableRestaurantResourceIT {
         List<ResponsableRestaurant> responsableRestaurantList = responsableRestaurantRepository.findAll().collectList().block();
         assertThat(responsableRestaurantList).hasSize(databaseSizeBeforeUpdate);
         ResponsableRestaurant testResponsableRestaurant = responsableRestaurantList.get(responsableRestaurantList.size() - 1);
-        assertThat(testResponsableRestaurant.getIdResponsable()).isEqualTo(UPDATED_ID_RESPONSABLE);
         assertThat(testResponsableRestaurant.getNomResponsable()).isEqualTo(UPDATED_NOM_RESPONSABLE);
         assertThat(testResponsableRestaurant.getPrenomResponsable()).isEqualTo(UPDATED_PRENOM_RESPONSABLE);
         assertThat(testResponsableRestaurant.getAdresseResponsable()).isEqualTo(UPDATED_ADRESSE_RESPONSABLE);
@@ -360,9 +348,9 @@ class ResponsableRestaurantResourceIT {
         partialUpdatedResponsableRestaurant.setId(responsableRestaurant.getId());
 
         partialUpdatedResponsableRestaurant
-            .idResponsable(UPDATED_ID_RESPONSABLE)
-            .prenomResponsable(UPDATED_PRENOM_RESPONSABLE)
-            .adresseResponsable(UPDATED_ADRESSE_RESPONSABLE);
+            .nomResponsable(UPDATED_NOM_RESPONSABLE)
+            .adresseResponsable(UPDATED_ADRESSE_RESPONSABLE)
+            .numResponsable(UPDATED_NUM_RESPONSABLE);
 
         webTestClient
             .patch()
@@ -377,11 +365,10 @@ class ResponsableRestaurantResourceIT {
         List<ResponsableRestaurant> responsableRestaurantList = responsableRestaurantRepository.findAll().collectList().block();
         assertThat(responsableRestaurantList).hasSize(databaseSizeBeforeUpdate);
         ResponsableRestaurant testResponsableRestaurant = responsableRestaurantList.get(responsableRestaurantList.size() - 1);
-        assertThat(testResponsableRestaurant.getIdResponsable()).isEqualTo(UPDATED_ID_RESPONSABLE);
-        assertThat(testResponsableRestaurant.getNomResponsable()).isEqualTo(DEFAULT_NOM_RESPONSABLE);
-        assertThat(testResponsableRestaurant.getPrenomResponsable()).isEqualTo(UPDATED_PRENOM_RESPONSABLE);
+        assertThat(testResponsableRestaurant.getNomResponsable()).isEqualTo(UPDATED_NOM_RESPONSABLE);
+        assertThat(testResponsableRestaurant.getPrenomResponsable()).isEqualTo(DEFAULT_PRENOM_RESPONSABLE);
         assertThat(testResponsableRestaurant.getAdresseResponsable()).isEqualTo(UPDATED_ADRESSE_RESPONSABLE);
-        assertThat(testResponsableRestaurant.getNumResponsable()).isEqualTo(DEFAULT_NUM_RESPONSABLE);
+        assertThat(testResponsableRestaurant.getNumResponsable()).isEqualTo(UPDATED_NUM_RESPONSABLE);
     }
 
     @Test
@@ -396,7 +383,6 @@ class ResponsableRestaurantResourceIT {
         partialUpdatedResponsableRestaurant.setId(responsableRestaurant.getId());
 
         partialUpdatedResponsableRestaurant
-            .idResponsable(UPDATED_ID_RESPONSABLE)
             .nomResponsable(UPDATED_NOM_RESPONSABLE)
             .prenomResponsable(UPDATED_PRENOM_RESPONSABLE)
             .adresseResponsable(UPDATED_ADRESSE_RESPONSABLE)
@@ -415,7 +401,6 @@ class ResponsableRestaurantResourceIT {
         List<ResponsableRestaurant> responsableRestaurantList = responsableRestaurantRepository.findAll().collectList().block();
         assertThat(responsableRestaurantList).hasSize(databaseSizeBeforeUpdate);
         ResponsableRestaurant testResponsableRestaurant = responsableRestaurantList.get(responsableRestaurantList.size() - 1);
-        assertThat(testResponsableRestaurant.getIdResponsable()).isEqualTo(UPDATED_ID_RESPONSABLE);
         assertThat(testResponsableRestaurant.getNomResponsable()).isEqualTo(UPDATED_NOM_RESPONSABLE);
         assertThat(testResponsableRestaurant.getPrenomResponsable()).isEqualTo(UPDATED_PRENOM_RESPONSABLE);
         assertThat(testResponsableRestaurant.getAdresseResponsable()).isEqualTo(UPDATED_ADRESSE_RESPONSABLE);

@@ -14,9 +14,6 @@
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_boissons" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
             <column name="nom_boissons" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
@@ -56,7 +53,6 @@
                   tableName="boissons"
                   usePreparedStatements="true">
             <column name="id" type="numeric"/>
-            <column name="id_boissons" type="string"/>
             <column name="nom_boissons" type="string"/>
             <column name="image_path" type="string"/>
             <column name="prix" type="numeric"/>

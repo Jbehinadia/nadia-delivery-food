@@ -36,9 +36,6 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 @WithMockUser
 class CommandeResourceIT {
 
-    private static final String DEFAULT_ID_COMMANDE = "AAAAAAAAAA";
-    private static final String UPDATED_ID_COMMANDE = "BBBBBBBBBB";
-
     private static final String DEFAULT_ADRESSE_COMMANDE = "AAAAAAAAAA";
     private static final String UPDATED_ADRESSE_COMMANDE = "BBBBBBBBBB";
 
@@ -91,7 +88,6 @@ class CommandeResourceIT {
      */
     public static Commande createEntity(EntityManager em) {
         Commande commande = new Commande()
-            .idCommande(DEFAULT_ID_COMMANDE)
             .adresseCommande(DEFAULT_ADRESSE_COMMANDE)
             .etat(DEFAULT_ETAT)
             .dateCommande(DEFAULT_DATE_COMMANDE)
@@ -111,7 +107,6 @@ class CommandeResourceIT {
      */
     public static Commande createUpdatedEntity(EntityManager em) {
         Commande commande = new Commande()
-            .idCommande(UPDATED_ID_COMMANDE)
             .adresseCommande(UPDATED_ADRESSE_COMMANDE)
             .etat(UPDATED_ETAT)
             .dateCommande(UPDATED_DATE_COMMANDE)
@@ -160,7 +155,6 @@ class CommandeResourceIT {
         List<Commande> commandeList = commandeRepository.findAll().collectList().block();
         assertThat(commandeList).hasSize(databaseSizeBeforeCreate + 1);
         Commande testCommande = commandeList.get(commandeList.size() - 1);
-        assertThat(testCommande.getIdCommande()).isEqualTo(DEFAULT_ID_COMMANDE);
         assertThat(testCommande.getAdresseCommande()).isEqualTo(DEFAULT_ADRESSE_COMMANDE);
         assertThat(testCommande.getEtat()).isEqualTo(DEFAULT_ETAT);
         assertThat(testCommande.getDateCommande()).isEqualTo(DEFAULT_DATE_COMMANDE);
@@ -212,8 +206,6 @@ class CommandeResourceIT {
             .expectBody()
             .jsonPath("$.[*].id")
             .value(hasItem(commande.getId().intValue()))
-            .jsonPath("$.[*].idCommande")
-            .value(hasItem(DEFAULT_ID_COMMANDE))
             .jsonPath("$.[*].adresseCommande")
             .value(hasItem(DEFAULT_ADRESSE_COMMANDE))
             .jsonPath("$.[*].etat")
@@ -250,8 +242,6 @@ class CommandeResourceIT {
             .expectBody()
             .jsonPath("$.id")
             .value(is(commande.getId().intValue()))
-            .jsonPath("$.idCommande")
-            .value(is(DEFAULT_ID_COMMANDE))
             .jsonPath("$.adresseCommande")
             .value(is(DEFAULT_ADRESSE_COMMANDE))
             .jsonPath("$.etat")
@@ -292,7 +282,6 @@ class CommandeResourceIT {
         // Update the commande
         Commande updatedCommande = commandeRepository.findById(commande.getId()).block();
         updatedCommande
-            .idCommande(UPDATED_ID_COMMANDE)
             .adresseCommande(UPDATED_ADRESSE_COMMANDE)
             .etat(UPDATED_ETAT)
             .dateCommande(UPDATED_DATE_COMMANDE)
@@ -316,7 +305,6 @@ class CommandeResourceIT {
         List<Commande> commandeList = commandeRepository.findAll().collectList().block();
         assertThat(commandeList).hasSize(databaseSizeBeforeUpdate);
         Commande testCommande = commandeList.get(commandeList.size() - 1);
-        assertThat(testCommande.getIdCommande()).isEqualTo(UPDATED_ID_COMMANDE);
         assertThat(testCommande.getAdresseCommande()).isEqualTo(UPDATED_ADRESSE_COMMANDE);
         assertThat(testCommande.getEtat()).isEqualTo(UPDATED_ETAT);
         assertThat(testCommande.getDateCommande()).isEqualTo(UPDATED_DATE_COMMANDE);
@@ -408,11 +396,11 @@ class CommandeResourceIT {
         partialUpdatedCommande.setId(commande.getId());
 
         partialUpdatedCommande
-            .idCommande(UPDATED_ID_COMMANDE)
-            .dateCommande(UPDATED_DATE_COMMANDE)
+            .adresseCommande(UPDATED_ADRESSE_COMMANDE)
             .prixTotal(UPDATED_PRIX_TOTAL)
-            .remiceVal(UPDATED_REMICE_VAL)
-            .prixLivreson(UPDATED_PRIX_LIVRESON);
+            .remisePerc(UPDATED_REMISE_PERC)
+            .prixLivreson(UPDATED_PRIX_LIVRESON)
+            .dateSortie(UPDATED_DATE_SORTIE);
 
         webTestClient
             .patch()
@@ -427,15 +415,14 @@ class CommandeResourceIT {
         List<Commande> commandeList = commandeRepository.findAll().collectList().block();
         assertThat(commandeList).hasSize(databaseSizeBeforeUpdate);
         Commande testCommande = commandeList.get(commandeList.size() - 1);
-        assertThat(testCommande.getIdCommande()).isEqualTo(UPDATED_ID_COMMANDE);
-        assertThat(testCommande.getAdresseCommande()).isEqualTo(DEFAULT_ADRESSE_COMMANDE);
+        assertThat(testCommande.getAdresseCommande()).isEqualTo(UPDATED_ADRESSE_COMMANDE);
         assertThat(testCommande.getEtat()).isEqualTo(DEFAULT_ETAT);
-        assertThat(testCommande.getDateCommande()).isEqualTo(UPDATED_DATE_COMMANDE);
+        assertThat(testCommande.getDateCommande()).isEqualTo(DEFAULT_DATE_COMMANDE);
         assertThat(testCommande.getPrixTotal()).isEqualTo(UPDATED_PRIX_TOTAL);
-        assertThat(testCommande.getRemisePerc()).isEqualTo(DEFAULT_REMISE_PERC);
-        assertThat(testCommande.getRemiceVal()).isEqualTo(UPDATED_REMICE_VAL);
+        assertThat(testCommande.getRemisePerc()).isEqualTo(UPDATED_REMISE_PERC);
+        assertThat(testCommande.getRemiceVal()).isEqualTo(DEFAULT_REMICE_VAL);
         assertThat(testCommande.getPrixLivreson()).isEqualTo(UPDATED_PRIX_LIVRESON);
-        assertThat(testCommande.getDateSortie()).isEqualTo(DEFAULT_DATE_SORTIE);
+        assertThat(testCommande.getDateSortie()).isEqualTo(UPDATED_DATE_SORTIE);
     }
 
     @Test
@@ -450,7 +437,6 @@ class CommandeResourceIT {
         partialUpdatedCommande.setId(commande.getId());
 
         partialUpdatedCommande
-            .idCommande(UPDATED_ID_COMMANDE)
             .adresseCommande(UPDATED_ADRESSE_COMMANDE)
             .etat(UPDATED_ETAT)
             .dateCommande(UPDATED_DATE_COMMANDE)
@@ -473,7 +459,6 @@ class CommandeResourceIT {
         List<Commande> commandeList = commandeRepository.findAll().collectList().block();
         assertThat(commandeList).hasSize(databaseSizeBeforeUpdate);
         Commande testCommande = commandeList.get(commandeList.size() - 1);
-        assertThat(testCommande.getIdCommande()).isEqualTo(UPDATED_ID_COMMANDE);
         assertThat(testCommande.getAdresseCommande()).isEqualTo(UPDATED_ADRESSE_COMMANDE);
         assertThat(testCommande.getEtat()).isEqualTo(UPDATED_ETAT);
         assertThat(testCommande.getDateCommande()).isEqualTo(UPDATED_DATE_COMMANDE);

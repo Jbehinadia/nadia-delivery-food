@@ -34,9 +34,6 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 @WithMockUser
 class FastFoodResourceIT {
 
-    private static final String DEFAULT_ID_FOOD = "AAAAAAAAAA";
-    private static final String UPDATED_ID_FOOD = "BBBBBBBBBB";
-
     private static final String DEFAULT_NOM_FOOD = "AAAAAAAAAA";
     private static final String UPDATED_NOM_FOOD = "BBBBBBBBBB";
 
@@ -80,7 +77,6 @@ class FastFoodResourceIT {
      */
     public static FastFood createEntity(EntityManager em) {
         FastFood fastFood = new FastFood()
-            .idFood(DEFAULT_ID_FOOD)
             .nomFood(DEFAULT_NOM_FOOD)
             .imagePath(DEFAULT_IMAGE_PATH)
             .prix(DEFAULT_PRIX)
@@ -97,7 +93,6 @@ class FastFoodResourceIT {
      */
     public static FastFood createUpdatedEntity(EntityManager em) {
         FastFood fastFood = new FastFood()
-            .idFood(UPDATED_ID_FOOD)
             .nomFood(UPDATED_NOM_FOOD)
             .imagePath(UPDATED_IMAGE_PATH)
             .prix(UPDATED_PRIX)
@@ -143,7 +138,6 @@ class FastFoodResourceIT {
         List<FastFood> fastFoodList = fastFoodRepository.findAll().collectList().block();
         assertThat(fastFoodList).hasSize(databaseSizeBeforeCreate + 1);
         FastFood testFastFood = fastFoodList.get(fastFoodList.size() - 1);
-        assertThat(testFastFood.getIdFood()).isEqualTo(DEFAULT_ID_FOOD);
         assertThat(testFastFood.getNomFood()).isEqualTo(DEFAULT_NOM_FOOD);
         assertThat(testFastFood.getImagePath()).isEqualTo(DEFAULT_IMAGE_PATH);
         assertThat(testFastFood.getPrix()).isEqualTo(DEFAULT_PRIX);
@@ -192,8 +186,6 @@ class FastFoodResourceIT {
             .expectBody()
             .jsonPath("$.[*].id")
             .value(hasItem(fastFood.getId().intValue()))
-            .jsonPath("$.[*].idFood")
-            .value(hasItem(DEFAULT_ID_FOOD))
             .jsonPath("$.[*].nomFood")
             .value(hasItem(DEFAULT_NOM_FOOD))
             .jsonPath("$.[*].imagePath")
@@ -224,8 +216,6 @@ class FastFoodResourceIT {
             .expectBody()
             .jsonPath("$.id")
             .value(is(fastFood.getId().intValue()))
-            .jsonPath("$.idFood")
-            .value(is(DEFAULT_ID_FOOD))
             .jsonPath("$.nomFood")
             .value(is(DEFAULT_NOM_FOOD))
             .jsonPath("$.imagePath")
@@ -260,7 +250,6 @@ class FastFoodResourceIT {
         // Update the fastFood
         FastFood updatedFastFood = fastFoodRepository.findById(fastFood.getId()).block();
         updatedFastFood
-            .idFood(UPDATED_ID_FOOD)
             .nomFood(UPDATED_NOM_FOOD)
             .imagePath(UPDATED_IMAGE_PATH)
             .prix(UPDATED_PRIX)
@@ -281,7 +270,6 @@ class FastFoodResourceIT {
         List<FastFood> fastFoodList = fastFoodRepository.findAll().collectList().block();
         assertThat(fastFoodList).hasSize(databaseSizeBeforeUpdate);
         FastFood testFastFood = fastFoodList.get(fastFoodList.size() - 1);
-        assertThat(testFastFood.getIdFood()).isEqualTo(UPDATED_ID_FOOD);
         assertThat(testFastFood.getNomFood()).isEqualTo(UPDATED_NOM_FOOD);
         assertThat(testFastFood.getImagePath()).isEqualTo(UPDATED_IMAGE_PATH);
         assertThat(testFastFood.getPrix()).isEqualTo(UPDATED_PRIX);
@@ -369,7 +357,7 @@ class FastFoodResourceIT {
         FastFood partialUpdatedFastFood = new FastFood();
         partialUpdatedFastFood.setId(fastFood.getId());
 
-        partialUpdatedFastFood.nomFood(UPDATED_NOM_FOOD).remisePerc(UPDATED_REMISE_PERC);
+        partialUpdatedFastFood.imagePath(UPDATED_IMAGE_PATH).remiceVal(UPDATED_REMICE_VAL);
 
         webTestClient
             .patch()
@@ -384,12 +372,11 @@ class FastFoodResourceIT {
         List<FastFood> fastFoodList = fastFoodRepository.findAll().collectList().block();
         assertThat(fastFoodList).hasSize(databaseSizeBeforeUpdate);
         FastFood testFastFood = fastFoodList.get(fastFoodList.size() - 1);
-        assertThat(testFastFood.getIdFood()).isEqualTo(DEFAULT_ID_FOOD);
-        assertThat(testFastFood.getNomFood()).isEqualTo(UPDATED_NOM_FOOD);
-        assertThat(testFastFood.getImagePath()).isEqualTo(DEFAULT_IMAGE_PATH);
+        assertThat(testFastFood.getNomFood()).isEqualTo(DEFAULT_NOM_FOOD);
+        assertThat(testFastFood.getImagePath()).isEqualTo(UPDATED_IMAGE_PATH);
         assertThat(testFastFood.getPrix()).isEqualTo(DEFAULT_PRIX);
-        assertThat(testFastFood.getRemisePerc()).isEqualTo(UPDATED_REMISE_PERC);
-        assertThat(testFastFood.getRemiceVal()).isEqualTo(DEFAULT_REMICE_VAL);
+        assertThat(testFastFood.getRemisePerc()).isEqualTo(DEFAULT_REMISE_PERC);
+        assertThat(testFastFood.getRemiceVal()).isEqualTo(UPDATED_REMICE_VAL);
     }
 
     @Test
@@ -404,7 +391,6 @@ class FastFoodResourceIT {
         partialUpdatedFastFood.setId(fastFood.getId());
 
         partialUpdatedFastFood
-            .idFood(UPDATED_ID_FOOD)
             .nomFood(UPDATED_NOM_FOOD)
             .imagePath(UPDATED_IMAGE_PATH)
             .prix(UPDATED_PRIX)
@@ -424,7 +410,6 @@ class FastFoodResourceIT {
         List<FastFood> fastFoodList = fastFoodRepository.findAll().collectList().block();
         assertThat(fastFoodList).hasSize(databaseSizeBeforeUpdate);
         FastFood testFastFood = fastFoodList.get(fastFoodList.size() - 1);
-        assertThat(testFastFood.getIdFood()).isEqualTo(UPDATED_ID_FOOD);
         assertThat(testFastFood.getNomFood()).isEqualTo(UPDATED_NOM_FOOD);
         assertThat(testFastFood.getImagePath()).isEqualTo(UPDATED_IMAGE_PATH);
         assertThat(testFastFood.getPrix()).isEqualTo(UPDATED_PRIX);

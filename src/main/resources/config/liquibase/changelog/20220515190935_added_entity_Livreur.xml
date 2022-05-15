@@ -14,9 +14,6 @@
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_livreur" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
             <column name="nom_livreur" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
@@ -50,7 +47,6 @@
                   tableName="livreur"
                   usePreparedStatements="true">
             <column name="id" type="numeric"/>
-            <column name="id_livreur" type="string"/>
             <column name="nom_livreur" type="string"/>
             <column name="prenom_livreur" type="string"/>
             <column name="adresse_livreur" type="string"/>

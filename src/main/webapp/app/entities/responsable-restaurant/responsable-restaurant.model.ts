@@ -2,7 +2,6 @@ import { IRestaurant } from 'app/entities/restaurant/restaurant.model';
 
 export interface IResponsableRestaurant {
   id?: number;
-  idResponsable?: string | null;
   nomResponsable?: string | null;
   prenomResponsable?: string | null;
   adresseResponsable?: string | null;
@@ -13,7 +12,6 @@ export interface IResponsableRestaurant {
 export class ResponsableRestaurant implements IResponsableRestaurant {
   constructor(
     public id?: number,
-    public idResponsable?: string | null,
     public nomResponsable?: string | null,
     public prenomResponsable?: string | null,
     public adresseResponsable?: string | null,

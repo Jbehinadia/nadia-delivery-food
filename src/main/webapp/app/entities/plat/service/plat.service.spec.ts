@@ -21,7 +21,6 @@ describe('Plat Service', () => {
 
     elemDefault = {
       id: 0,
-      idPlat: 'AAAAAAA',
       nomPlat: 'AAAAAAA',
       imagePath: 'AAAAAAA',
       prix: 0,
@@ -62,7 +61,6 @@ describe('Plat Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 1,
-          idPlat: 'BBBBBB',
           nomPlat: 'BBBBBB',
           imagePath: 'BBBBBB',
           prix: 1,
@@ -84,7 +82,6 @@ describe('Plat Service', () => {
     it('should partial update a Plat', () => {
       const patchObject = Object.assign(
         {
-          prix: 1,
           remisePerc: 1,
           remiceVal: 1,
         },
@@ -106,7 +103,6 @@ describe('Plat Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 1,
-          idPlat: 'BBBBBB',
           nomPlat: 'BBBBBB',
           imagePath: 'BBBBBB',
           prix: 1,
@@ -163,7 +159,7 @@ describe('Plat Service', () => {
       });
 
       it('should add only unique Plat to an array', () => {
-        const platArray: IPlat[] = [{ id: 123 }, { id: 456 }, { id: 51598 }];
+        const platArray: IPlat[] = [{ id: 123 }, { id: 456 }, { id: 54183 }];
         const platCollection: IPlat[] = [{ id: 123 }];
         expectedResult = service.addPlatToCollectionIfMissing(platCollection, ...platArray);
         expect(expectedResult).toHaveLength(3);

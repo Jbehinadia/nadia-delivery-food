@@ -3,7 +3,6 @@ import { IMenu } from 'app/entities/menu/menu.model';
 
 export interface IBoissons {
   id?: number;
-  idBoissons?: string | null;
   nomBoissons?: string | null;
   imagePath?: string | null;
   prix?: number | null;
@@ -16,7 +15,6 @@ export interface IBoissons {
 export class Boissons implements IBoissons {
   constructor(
     public id?: number,
-    public idBoissons?: string | null,
     public nomBoissons?: string | null,
     public imagePath?: string | null,
     public prix?: number | null,

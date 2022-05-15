@@ -11,7 +11,6 @@ public class ClientSqlHelper {
     public static List<Expression> getColumns(Table table, String columnPrefix) {
         List<Expression> columns = new ArrayList<>();
         columns.add(Column.aliased("id", table, columnPrefix + "_id"));
-        columns.add(Column.aliased("id_client", table, columnPrefix + "_id_client"));
         columns.add(Column.aliased("nom_client", table, columnPrefix + "_nom_client"));
         columns.add(Column.aliased("prenom_client", table, columnPrefix + "_prenom_client"));
         columns.add(Column.aliased("adresse_client", table, columnPrefix + "_adresse_client"));

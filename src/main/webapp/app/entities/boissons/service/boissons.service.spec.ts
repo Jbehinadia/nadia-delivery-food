@@ -21,7 +21,6 @@ describe('Boissons Service', () => {
 
     elemDefault = {
       id: 0,
-      idBoissons: 'AAAAAAA',
       nomBoissons: 'AAAAAAA',
       imagePath: 'AAAAAAA',
       prix: 0,
@@ -62,7 +61,6 @@ describe('Boissons Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 1,
-          idBoissons: 'BBBBBB',
           nomBoissons: 'BBBBBB',
           imagePath: 'BBBBBB',
           prix: 1,
@@ -84,10 +82,9 @@ describe('Boissons Service', () => {
     it('should partial update a Boissons', () => {
       const patchObject = Object.assign(
         {
-          idBoissons: 'BBBBBB',
-          imagePath: 'BBBBBB',
+          nomBoissons: 'BBBBBB',
           prix: 1,
-          remiceVal: 1,
+          remisePerc: 1,
         },
         new Boissons()
       );
@@ -107,7 +104,6 @@ describe('Boissons Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 1,
-          idBoissons: 'BBBBBB',
           nomBoissons: 'BBBBBB',
           imagePath: 'BBBBBB',
           prix: 1,
@@ -164,7 +160,7 @@ describe('Boissons Service', () => {
       });
 
       it('should add only unique Boissons to an array', () => {
-        const boissonsArray: IBoissons[] = [{ id: 123 }, { id: 456 }, { id: 61708 }];
+        const boissonsArray: IBoissons[] = [{ id: 123 }, { id: 456 }, { id: 71412 }];
         const boissonsCollection: IBoissons[] = [{ id: 123 }];
         expectedResult = service.addBoissonsToCollectionIfMissing(boissonsCollection, ...boissonsArray);
         expect(expectedResult).toHaveLength(3);

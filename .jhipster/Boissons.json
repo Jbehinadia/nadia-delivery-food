@@ -6,10 +6,6 @@
   "entityTableName": "boissons",
   "fields": [
     {
-      "fieldName": "idBoissons",
-      "fieldType": "String"
-    },
-    {
       "fieldName": "nomBoissons",
       "fieldType": "String"
     },

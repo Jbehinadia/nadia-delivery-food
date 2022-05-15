@@ -3,7 +3,6 @@ import { IMenu } from 'app/entities/menu/menu.model';
 
 export interface IFastFood {
   id?: number;
-  idFood?: string | null;
   nomFood?: string | null;
   imagePath?: string | null;
   prix?: number | null;
@@ -16,7 +15,6 @@ export interface IFastFood {
 export class FastFood implements IFastFood {
   constructor(
     public id?: number,
-    public idFood?: string | null,
     public nomFood?: string | null,
     public imagePath?: string | null,
     public prix?: number | null,

@@ -34,9 +34,6 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 @WithMockUser
 class MenuResourceIT {
 
-    private static final String DEFAULT_ID_MENU = "AAAAAAAAAA";
-    private static final String UPDATED_ID_MENU = "BBBBBBBBBB";
-
     private static final String DEFAULT_NOM_MENU = "AAAAAAAAAA";
     private static final String UPDATED_NOM_MENU = "BBBBBBBBBB";
 
@@ -67,7 +64,7 @@ class MenuResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Menu createEntity(EntityManager em) {
-        Menu menu = new Menu().idMenu(DEFAULT_ID_MENU).nomMenu(DEFAULT_NOM_MENU);
+        Menu menu = new Menu().nomMenu(DEFAULT_NOM_MENU);
         return menu;
     }
 
@@ -78,7 +75,7 @@ class MenuResourceIT {
      * if they test an entity which requires the current entity.
      */
     public static Menu createUpdatedEntity(EntityManager em) {
-        Menu menu = new Menu().idMenu(UPDATED_ID_MENU).nomMenu(UPDATED_NOM_MENU);
+        Menu menu = new Menu().nomMenu(UPDATED_NOM_MENU);
         return menu;
     }
 
@@ -119,7 +116,6 @@ class MenuResourceIT {
         List<Menu> menuList = menuRepository.findAll().collectList().block();
         assertThat(menuList).hasSize(databaseSizeBeforeCreate + 1);
         Menu testMenu = menuList.get(menuList.size() - 1);
-        assertThat(testMenu.getIdMenu()).isEqualTo(DEFAULT_ID_MENU);
         assertThat(testMenu.getNomMenu()).isEqualTo(DEFAULT_NOM_MENU);
     }
 
@@ -164,8 +160,6 @@ class MenuResourceIT {
             .expectBody()
             .jsonPath("$.[*].id")
             .value(hasItem(menu.getId().intValue()))
-            .jsonPath("$.[*].idMenu")
-            .value(hasItem(DEFAULT_ID_MENU))
             .jsonPath("$.[*].nomMenu")
             .value(hasItem(DEFAULT_NOM_MENU));
     }
@@ -188,8 +182,6 @@ class MenuResourceIT {
             .expectBody()
             .jsonPath("$.id")
             .value(is(menu.getId().intValue()))
-            .jsonPath("$.idMenu")
-            .value(is(DEFAULT_ID_MENU))
             .jsonPath("$.nomMenu")
             .value(is(DEFAULT_NOM_MENU));
     }
@@ -215,7 +207,7 @@ class MenuResourceIT {
 
         // Update the menu
         Menu updatedMenu = menuRepository.findById(menu.getId()).block();
-        updatedMenu.idMenu(UPDATED_ID_MENU).nomMenu(UPDATED_NOM_MENU);
+        updatedMenu.nomMenu(UPDATED_NOM_MENU);
         MenuDTO menuDTO = menuMapper.toDto(updatedMenu);
 
         webTestClient
@@ -231,7 +223,6 @@ class MenuResourceIT {
         List<Menu> menuList = menuRepository.findAll().collectList().block();
         assertThat(menuList).hasSize(databaseSizeBeforeUpdate);
         Menu testMenu = menuList.get(menuList.size() - 1);
-        assertThat(testMenu.getIdMenu()).isEqualTo(UPDATED_ID_MENU);
         assertThat(testMenu.getNomMenu()).isEqualTo(UPDATED_NOM_MENU);
     }
 
@@ -328,7 +319,6 @@ class MenuResourceIT {
         List<Menu> menuList = menuRepository.findAll().collectList().block();
         assertThat(menuList).hasSize(databaseSizeBeforeUpdate);
         Menu testMenu = menuList.get(menuList.size() - 1);
-        assertThat(testMenu.getIdMenu()).isEqualTo(DEFAULT_ID_MENU);
         assertThat(testMenu.getNomMenu()).isEqualTo(DEFAULT_NOM_MENU);
     }
 
@@ -343,7 +333,7 @@ class MenuResourceIT {
         Menu partialUpdatedMenu = new Menu();
         partialUpdatedMenu.setId(menu.getId());
 
-        partialUpdatedMenu.idMenu(UPDATED_ID_MENU).nomMenu(UPDATED_NOM_MENU);
+        partialUpdatedMenu.nomMenu(UPDATED_NOM_MENU);
 
         webTestClient
             .patch()
@@ -358,7 +348,6 @@ class MenuResourceIT {
         List<Menu> menuList = menuRepository.findAll().collectList().block();
         assertThat(menuList).hasSize(databaseSizeBeforeUpdate);
         Menu testMenu = menuList.get(menuList.size() - 1);
-        assertThat(testMenu.getIdMenu()).isEqualTo(UPDATED_ID_MENU);
         assertThat(testMenu.getNomMenu()).isEqualTo(UPDATED_NOM_MENU);
     }
 

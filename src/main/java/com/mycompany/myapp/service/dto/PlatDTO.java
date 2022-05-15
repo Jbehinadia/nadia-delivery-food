@@ -10,8 +10,6 @@ public class PlatDTO implements Serializable {
 
     private Long id;
 
-    private String idPlat;
-
     private String nomPlat;
 
     private String imagePath;
@@ -30,14 +28,6 @@ public class PlatDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getIdPlat() {
-        return idPlat;
-    }
-
-    public void setIdPlat(String idPlat) {
-        this.idPlat = idPlat;
     }
 
     public String getNomPlat() {
@@ -114,7 +104,6 @@ public class PlatDTO implements Serializable {
     public String toString() {
         return "PlatDTO{" +
             "id=" + getId() +
-            ", idPlat='" + getIdPlat() + "'" +
             ", nomPlat='" + getNomPlat() + "'" +
             ", imagePath='" + getImagePath() + "'" +
             ", prix=" + getPrix() +

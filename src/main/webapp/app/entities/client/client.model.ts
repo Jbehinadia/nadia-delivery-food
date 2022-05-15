@@ -2,7 +2,6 @@ import { ICommande } from 'app/entities/commande/commande.model';
 
 export interface IClient {
   id?: number;
-  idClient?: string | null;
   nomClient?: string | null;
   prenomClient?: string | null;
   adresseClient?: string | null;
@@ -13,7 +12,6 @@ export interface IClient {
 export class Client implements IClient {
   constructor(
     public id?: number,
-    public idClient?: string | null,
     public nomClient?: string | null,
     public prenomClient?: string | null,
     public adresseClient?: string | null,

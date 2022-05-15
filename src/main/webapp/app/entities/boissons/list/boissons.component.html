@@ -33,9 +33,6 @@
       <thead>
         <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
           <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
-          <th scope="col" jhiSortBy="idBoissons">
-            <span jhiTranslate="nadiaDeliveryFoodApp.boissons.idBoissons">Id Boissons</span> <fa-icon icon="sort"></fa-icon>
-          </th>
           <th scope="col" jhiSortBy="nomBoissons">
             <span jhiTranslate="nadiaDeliveryFoodApp.boissons.nomBoissons">Nom Boissons</span> <fa-icon icon="sort"></fa-icon>
           </th>
@@ -62,7 +59,6 @@
           <td>
             <a [routerLink]="['/boissons', boissons.id, 'view']">{{ boissons.id }}</a>
           </td>
-          <td>{{ boissons.idBoissons }}</td>
           <td>{{ boissons.nomBoissons }}</td>
           <td>{{ boissons.imagePath }}</td>
           <td>{{ boissons.prix }}</td>

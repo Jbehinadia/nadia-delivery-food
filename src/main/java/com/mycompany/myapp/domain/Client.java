@@ -21,9 +21,6 @@ public class Client implements Serializable {
     @Column("id")
     private Long id;
 
-    @Column("id_client")
-    private String idClient;
-
     @Column("nom_client")
     private String nomClient;
 
@@ -53,19 +50,6 @@ public class Client implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getIdClient() {
-        return this.idClient;
-    }
-
-    public Client idClient(String idClient) {
-        this.setIdClient(idClient);
-        return this;
-    }
-
-    public void setIdClient(String idClient) {
-        this.idClient = idClient;
     }
 
     public String getNomClient() {
@@ -175,7 +159,6 @@ public class Client implements Serializable {
     public String toString() {
         return "Client{" +
             "id=" + getId() +
-            ", idClient='" + getIdClient() + "'" +
             ", nomClient='" + getNomClient() + "'" +
             ", prenomClient='" + getPrenomClient() + "'" +
             ", adresseClient='" + getAdresseClient() + "'" +

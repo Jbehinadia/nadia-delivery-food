@@ -18,7 +18,6 @@
         "title": "Client"
       },
       "id": "ID",
-      "idClient": "Id Client",
       "nomClient": "Nom Client",
       "prenomClient": "Prenom Client",
       "adresseClient": "Adresse Client",

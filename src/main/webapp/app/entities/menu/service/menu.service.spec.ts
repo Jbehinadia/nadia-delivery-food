@@ -21,7 +21,6 @@ describe('Menu Service', () => {
 
     elemDefault = {
       id: 0,
-      idMenu: 'AAAAAAA',
       nomMenu: 'AAAAAAA',
     };
   });
@@ -58,7 +57,6 @@ describe('Menu Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 1,
-          idMenu: 'BBBBBB',
           nomMenu: 'BBBBBB',
         },
         elemDefault
@@ -91,7 +89,6 @@ describe('Menu Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 1,
-          idMenu: 'BBBBBB',
           nomMenu: 'BBBBBB',
         },
         elemDefault
@@ -144,7 +141,7 @@ describe('Menu Service', () => {
       });
 
       it('should add only unique Menu to an array', () => {
-        const menuArray: IMenu[] = [{ id: 123 }, { id: 456 }, { id: 91748 }];
+        const menuArray: IMenu[] = [{ id: 123 }, { id: 456 }, { id: 30359 }];
         const menuCollection: IMenu[] = [{ id: 123 }];
         expectedResult = service.addMenuToCollectionIfMissing(menuCollection, ...menuArray);
         expect(expectedResult).toHaveLength(3);

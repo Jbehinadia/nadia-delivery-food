@@ -25,7 +25,6 @@ public class LivreurRowMapper implements BiFunction<Row, String, Livreur> {
     public Livreur apply(Row row, String prefix) {
         Livreur entity = new Livreur();
         entity.setId(converter.fromRow(row, prefix + "_id", Long.class));
-        entity.setIdLivreur(converter.fromRow(row, prefix + "_id_livreur", String.class));
         entity.setNomLivreur(converter.fromRow(row, prefix + "_nom_livreur", String.class));
         entity.setPrenomLivreur(converter.fromRow(row, prefix + "_prenom_livreur", String.class));
         entity.setAdresseLivreur(converter.fromRow(row, prefix + "_adresse_livreur", String.class));

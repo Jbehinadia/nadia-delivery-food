@@ -10,8 +10,6 @@ public class DessertDTO implements Serializable {
 
     private Long id;
 
-    private String idDessert;
-
     private String nomDessert;
 
     private String imagePath;
@@ -30,14 +28,6 @@ public class DessertDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getIdDessert() {
-        return idDessert;
-    }
-
-    public void setIdDessert(String idDessert) {
-        this.idDessert = idDessert;
     }
 
     public String getNomDessert() {
@@ -114,7 +104,6 @@ public class DessertDTO implements Serializable {
     public String toString() {
         return "DessertDTO{" +
             "id=" + getId() +
-            ", idDessert='" + getIdDessert() + "'" +
             ", nomDessert='" + getNomDessert() + "'" +
             ", imagePath='" + getImagePath() + "'" +
             ", prix=" + getPrix() +

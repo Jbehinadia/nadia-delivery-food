@@ -25,7 +25,6 @@ public class MenuRowMapper implements BiFunction<Row, String, Menu> {
     public Menu apply(Row row, String prefix) {
         Menu entity = new Menu();
         entity.setId(converter.fromRow(row, prefix + "_id", Long.class));
-        entity.setIdMenu(converter.fromRow(row, prefix + "_id_menu", String.class));
         entity.setNomMenu(converter.fromRow(row, prefix + "_nom_menu", String.class));
         entity.setRestaurantId(converter.fromRow(row, prefix + "_restaurant_id", Long.class));
         return entity;

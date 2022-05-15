@@ -21,9 +21,6 @@ public class Livreur implements Serializable {
     @Column("id")
     private Long id;
 
-    @Column("id_livreur")
-    private String idLivreur;
-
     @Column("nom_livreur")
     private String nomLivreur;
 
@@ -53,19 +50,6 @@ public class Livreur implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getIdLivreur() {
-        return this.idLivreur;
-    }
-
-    public Livreur idLivreur(String idLivreur) {
-        this.setIdLivreur(idLivreur);
-        return this;
-    }
-
-    public void setIdLivreur(String idLivreur) {
-        this.idLivreur = idLivreur;
     }
 
     public String getNomLivreur() {
@@ -175,7 +159,6 @@ public class Livreur implements Serializable {
     public String toString() {
         return "Livreur{" +
             "id=" + getId() +
-            ", idLivreur='" + getIdLivreur() + "'" +
             ", nomLivreur='" + getNomLivreur() + "'" +
             ", prenomLivreur='" + getPrenomLivreur() + "'" +
             ", adresseLivreur='" + getAdresseLivreur() + "'" +

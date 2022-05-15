@@ -21,9 +21,6 @@ public class FastFood implements Serializable {
     @Column("id")
     private Long id;
 
-    @Column("id_food")
-    private String idFood;
-
     @Column("nom_food")
     private String nomFood;
 
@@ -63,19 +60,6 @@ public class FastFood implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getIdFood() {
-        return this.idFood;
-    }
-
-    public FastFood idFood(String idFood) {
-        this.setIdFood(idFood);
-        return this;
-    }
-
-    public void setIdFood(String idFood) {
-        this.idFood = idFood;
     }
 
     public String getNomFood() {
@@ -220,7 +204,6 @@ public class FastFood implements Serializable {
     public String toString() {
         return "FastFood{" +
             "id=" + getId() +
-            ", idFood='" + getIdFood() + "'" +
             ", nomFood='" + getNomFood() + "'" +
             ", imagePath='" + getImagePath() + "'" +
             ", prix=" + getPrix() +

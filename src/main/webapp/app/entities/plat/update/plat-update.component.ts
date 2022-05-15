@@ -21,7 +21,6 @@ export class PlatUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idPlat: [],
     nomPlat: [],
     imagePath: [],
     prix: [],
@@ -85,7 +84,6 @@ export class PlatUpdateComponent implements OnInit {
   protected updateForm(plat: IPlat): void {
     this.editForm.patchValue({
       id: plat.id,
-      idPlat: plat.idPlat,
       nomPlat: plat.nomPlat,
       imagePath: plat.imagePath,
       prix: plat.prix,
@@ -109,7 +107,6 @@ export class PlatUpdateComponent implements OnInit {
     return {
       ...new Plat(),
       id: this.editForm.get(['id'])!.value,
-      idPlat: this.editForm.get(['idPlat'])!.value,
       nomPlat: this.editForm.get(['nomPlat'])!.value,
       imagePath: this.editForm.get(['imagePath'])!.value,
       prix: this.editForm.get(['prix'])!.value,

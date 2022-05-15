@@ -22,9 +22,6 @@ public class Commande implements Serializable {
     @Column("id")
     private Long id;
 
-    @Column("id_commande")
-    private String idCommande;
-
     @Column("adresse_commande")
     private String adresseCommande;
 
@@ -80,19 +77,6 @@ public class Commande implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getIdCommande() {
-        return this.idCommande;
-    }
-
-    public Commande idCommande(String idCommande) {
-        this.setIdCommande(idCommande);
-        return this;
-    }
-
-    public void setIdCommande(String idCommande) {
-        this.idCommande = idCommande;
     }
 
     public String getAdresseCommande() {
@@ -298,7 +282,6 @@ public class Commande implements Serializable {
     public String toString() {
         return "Commande{" +
             "id=" + getId() +
-            ", idCommande='" + getIdCommande() + "'" +
             ", adresseCommande='" + getAdresseCommande() + "'" +
             ", etat='" + getEtat() + "'" +
             ", dateCommande='" + getDateCommande() + "'" +

@@ -21,7 +21,6 @@ describe('FastFood Service', () => {
 
     elemDefault = {
       id: 0,
-      idFood: 'AAAAAAA',
       nomFood: 'AAAAAAA',
       imagePath: 'AAAAAAA',
       prix: 0,
@@ -62,7 +61,6 @@ describe('FastFood Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 1,
-          idFood: 'BBBBBB',
           nomFood: 'BBBBBB',
           imagePath: 'BBBBBB',
           prix: 1,
@@ -84,10 +82,9 @@ describe('FastFood Service', () => {
     it('should partial update a FastFood', () => {
       const patchObject = Object.assign(
         {
-          idFood: 'BBBBBB',
           nomFood: 'BBBBBB',
-          prix: 1,
-          remiceVal: 1,
+          imagePath: 'BBBBBB',
+          remisePerc: 1,
         },
         new FastFood()
       );
@@ -107,7 +104,6 @@ describe('FastFood Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 1,
-          idFood: 'BBBBBB',
           nomFood: 'BBBBBB',
           imagePath: 'BBBBBB',
           prix: 1,
@@ -164,7 +160,7 @@ describe('FastFood Service', () => {
       });
 
       it('should add only unique FastFood to an array', () => {
-        const fastFoodArray: IFastFood[] = [{ id: 123 }, { id: 456 }, { id: 6729 }];
+        const fastFoodArray: IFastFood[] = [{ id: 123 }, { id: 456 }, { id: 57337 }];
         const fastFoodCollection: IFastFood[] = [{ id: 123 }];
         expectedResult = service.addFastFoodToCollectionIfMissing(fastFoodCollection, ...fastFoodArray);
         expect(expectedResult).toHaveLength(3);

@@ -18,7 +18,6 @@
         "title": "Commande"
       },
       "id": "ID",
-      "idCommande": "Id Commande",
       "adresseCommande": "Adresse Commande",
       "etat": "Etat",
       "dateCommande": "Date Commande",

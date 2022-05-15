@@ -10,8 +10,6 @@ public class ClientDTO implements Serializable {
 
     private Long id;
 
-    private String idClient;
-
     private String nomClient;
 
     private String prenomClient;
@@ -26,14 +24,6 @@ public class ClientDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getIdClient() {
-        return idClient;
-    }
-
-    public void setIdClient(String idClient) {
-        this.idClient = idClient;
     }
 
     public String getNomClient() {
@@ -94,7 +84,6 @@ public class ClientDTO implements Serializable {
     public String toString() {
         return "ClientDTO{" +
             "id=" + getId() +
-            ", idClient='" + getIdClient() + "'" +
             ", nomClient='" + getNomClient() + "'" +
             ", prenomClient='" + getPrenomClient() + "'" +
             ", adresseClient='" + getAdresseClient() + "'" +

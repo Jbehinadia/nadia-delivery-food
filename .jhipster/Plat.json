@@ -6,10 +6,6 @@
   "entityTableName": "plat",
   "fields": [
     {
-      "fieldName": "idPlat",
-      "fieldType": "String"
-    },
-    {
       "fieldName": "nomPlat",
       "fieldType": "String"
     },

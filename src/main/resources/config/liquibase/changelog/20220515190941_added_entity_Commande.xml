@@ -14,9 +14,6 @@
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_commande" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
             <column name="adresse_commande" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
@@ -70,7 +67,6 @@
                   tableName="commande"
                   usePreparedStatements="true">
             <column name="id" type="numeric"/>
-            <column name="id_commande" type="string"/>
             <column name="adresse_commande" type="string"/>
             <column name="etat" type="string"/>
             <column name="date_commande" type="date"/>

@@ -21,7 +21,6 @@ describe('ResponsableRestaurant Service', () => {
 
     elemDefault = {
       id: 0,
-      idResponsable: 'AAAAAAA',
       nomResponsable: 'AAAAAAA',
       prenomResponsable: 'AAAAAAA',
       adresseResponsable: 'AAAAAAA',
@@ -61,7 +60,6 @@ describe('ResponsableRestaurant Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 1,
-          idResponsable: 'BBBBBB',
           nomResponsable: 'BBBBBB',
           prenomResponsable: 'BBBBBB',
           adresseResponsable: 'BBBBBB',
@@ -82,8 +80,8 @@ describe('ResponsableRestaurant Service', () => {
     it('should partial update a ResponsableRestaurant', () => {
       const patchObject = Object.assign(
         {
-          prenomResponsable: 'BBBBBB',
           adresseResponsable: 'BBBBBB',
+          numResponsable: 'BBBBBB',
         },
         new ResponsableRestaurant()
       );
@@ -103,7 +101,6 @@ describe('ResponsableRestaurant Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 1,
-          idResponsable: 'BBBBBB',
           nomResponsable: 'BBBBBB',
           prenomResponsable: 'BBBBBB',
           adresseResponsable: 'BBBBBB',
@@ -159,7 +156,7 @@ describe('ResponsableRestaurant Service', () => {
       });
 
       it('should add only unique ResponsableRestaurant to an array', () => {
-        const responsableRestaurantArray: IResponsableRestaurant[] = [{ id: 123 }, { id: 456 }, { id: 97835 }];
+        const responsableRestaurantArray: IResponsableRestaurant[] = [{ id: 123 }, { id: 456 }, { id: 42312 }];
         const responsableRestaurantCollection: IResponsableRestaurant[] = [{ id: 123 }];
         expectedResult = service.addResponsableRestaurantToCollectionIfMissing(
           responsableRestaurantCollection,

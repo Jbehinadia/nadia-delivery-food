@@ -5,7 +5,6 @@ import { IClient } from 'app/entities/client/client.model';
 
 export interface ICommande {
   id?: number;
-  idCommande?: string | null;
   adresseCommande?: string | null;
   etat?: string | null;
   dateCommande?: dayjs.Dayjs | null;
@@ -22,7 +21,6 @@ export interface ICommande {
 export class Commande implements ICommande {
   constructor(
     public id?: number,
-    public idCommande?: string | null,
     public adresseCommande?: string | null,
     public etat?: string | null,
     public dateCommande?: dayjs.Dayjs | null,

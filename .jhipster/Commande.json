@@ -6,10 +6,6 @@
   "entityTableName": "commande",
   "fields": [
     {
-      "fieldName": "idCommande",
-      "fieldType": "String"
-    },
-    {
       "fieldName": "adresseCommande",
       "fieldType": "String"
     },

@@ -2,7 +2,6 @@ import { ICommande } from 'app/entities/commande/commande.model';
 
 export interface ILivreur {
   id?: number;
-  idLivreur?: string | null;
   nomLivreur?: string | null;
   prenomLivreur?: string | null;
   adresseLivreur?: string | null;
@@ -13,7 +12,6 @@ export interface ILivreur {
 export class Livreur implements ILivreur {
   constructor(
     public id?: number,
-    public idLivreur?: string | null,
     public nomLivreur?: string | null,
     public prenomLivreur?: string | null,
     public adresseLivreur?: string | null,

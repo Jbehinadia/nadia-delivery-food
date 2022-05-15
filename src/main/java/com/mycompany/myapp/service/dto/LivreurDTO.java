@@ -10,8 +10,6 @@ public class LivreurDTO implements Serializable {
 
     private Long id;
 
-    private String idLivreur;
-
     private String nomLivreur;
 
     private String prenomLivreur;
@@ -26,14 +24,6 @@ public class LivreurDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getIdLivreur() {
-        return idLivreur;
-    }
-
-    public void setIdLivreur(String idLivreur) {
-        this.idLivreur = idLivreur;
     }
 
     public String getNomLivreur() {
@@ -94,7 +84,6 @@ public class LivreurDTO implements Serializable {
     public String toString() {
         return "LivreurDTO{" +
             "id=" + getId() +
-            ", idLivreur='" + getIdLivreur() + "'" +
             ", nomLivreur='" + getNomLivreur() + "'" +
             ", prenomLivreur='" + getPrenomLivreur() + "'" +
             ", adresseLivreur='" + getAdresseLivreur() + "'" +

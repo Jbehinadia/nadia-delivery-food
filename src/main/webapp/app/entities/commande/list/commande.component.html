@@ -33,9 +33,6 @@
       <thead>
         <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
           <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
-          <th scope="col" jhiSortBy="idCommande">
-            <span jhiTranslate="nadiaDeliveryFoodApp.commande.idCommande">Id Commande</span> <fa-icon icon="sort"></fa-icon>
-          </th>
           <th scope="col" jhiSortBy="adresseCommande">
             <span jhiTranslate="nadiaDeliveryFoodApp.commande.adresseCommande">Adresse Commande</span> <fa-icon icon="sort"></fa-icon>
           </th>
@@ -74,7 +71,6 @@
           <td>
             <a [routerLink]="['/commande', commande.id, 'view']">{{ commande.id }}</a>
           </td>
-          <td>{{ commande.idCommande }}</td>
           <td>{{ commande.adresseCommande }}</td>
           <td>{{ commande.etat }}</td>
           <td>{{ commande.dateCommande | formatMediumDatetime }}</td>

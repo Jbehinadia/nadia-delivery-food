@@ -25,7 +25,6 @@ describe('Commande Service', () => {
 
     elemDefault = {
       id: 0,
-      idCommande: 'AAAAAAA',
       adresseCommande: 'AAAAAAA',
       etat: 'AAAAAAA',
       dateCommande: currentDate,
@@ -83,7 +82,6 @@ describe('Commande Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 1,
-          idCommande: 'BBBBBB',
           adresseCommande: 'BBBBBB',
           etat: 'BBBBBB',
           dateCommande: currentDate.format(DATE_TIME_FORMAT),
@@ -114,11 +112,10 @@ describe('Commande Service', () => {
     it('should partial update a Commande', () => {
       const patchObject = Object.assign(
         {
-          idCommande: 'BBBBBB',
           adresseCommande: 'BBBBBB',
-          prixTotal: 1,
-          remiceVal: 1,
-          dateSortie: currentDate.format(DATE_TIME_FORMAT),
+          etat: 'BBBBBB',
+          remisePerc: 1,
+          prixLivreson: 1,
         },
         new Commande()
       );
@@ -144,7 +141,6 @@ describe('Commande Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 1,
-          idCommande: 'BBBBBB',
           adresseCommande: 'BBBBBB',
           etat: 'BBBBBB',
           dateCommande: currentDate.format(DATE_TIME_FORMAT),
@@ -210,7 +206,7 @@ describe('Commande Service', () => {
       });
 
       it('should add only unique Commande to an array', () => {
-        const commandeArray: ICommande[] = [{ id: 123 }, { id: 456 }, { id: 96669 }];
+        const commandeArray: ICommande[] = [{ id: 123 }, { id: 456 }, { id: 59679 }];
         const commandeCollection: ICommande[] = [{ id: 123 }];
         expectedResult = service.addCommandeToCollectionIfMissing(commandeCollection, ...commandeArray);
         expect(expectedResult).toHaveLength(3);

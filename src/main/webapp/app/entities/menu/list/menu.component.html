@@ -33,9 +33,6 @@
       <thead>
         <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
           <th scope="col" jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <fa-icon icon="sort"></fa-icon></th>
-          <th scope="col" jhiSortBy="idMenu">
-            <span jhiTranslate="nadiaDeliveryFoodApp.menu.idMenu">Id Menu</span> <fa-icon icon="sort"></fa-icon>
-          </th>
           <th scope="col" jhiSortBy="nomMenu">
             <span jhiTranslate="nadiaDeliveryFoodApp.menu.nomMenu">Nom Menu</span> <fa-icon icon="sort"></fa-icon>
           </th>
@@ -50,7 +47,6 @@
           <td>
             <a [routerLink]="['/menu', menu.id, 'view']">{{ menu.id }}</a>
           </td>
-          <td>{{ menu.idMenu }}</td>
           <td>{{ menu.nomMenu }}</td>
           <td>
             <div *ngIf="menu.restaurant">

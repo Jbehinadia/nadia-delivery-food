@@ -6,10 +6,6 @@
   "entityTableName": "dessert",
   "fields": [
     {
-      "fieldName": "idDessert",
-      "fieldType": "String"
-    },
-    {
       "fieldName": "nomDessert",
       "fieldType": "String"
     },

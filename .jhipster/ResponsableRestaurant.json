@@ -6,10 +6,6 @@
   "entityTableName": "responsable_restaurant",
   "fields": [
     {
-      "fieldName": "idResponsable",
-      "fieldType": "String"
-    },
-    {
       "fieldName": "nomResponsable",
       "fieldType": "String"
     },

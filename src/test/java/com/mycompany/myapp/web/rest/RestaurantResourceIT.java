@@ -34,9 +34,6 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 @WithMockUser
 class RestaurantResourceIT {
 
-    private static final String DEFAULT_ID_RESTAURANT = "AAAAAAAAAA";
-    private static final String UPDATED_ID_RESTAURANT = "BBBBBBBBBB";
-
     private static final String DEFAULT_NOM_RESTAURANT = "AAAAAAAAAA";
     private static final String UPDATED_NOM_RESTAURANT = "BBBBBBBBBB";
 
@@ -74,7 +71,6 @@ class RestaurantResourceIT {
      */
     public static Restaurant createEntity(EntityManager em) {
         Restaurant restaurant = new Restaurant()
-            .idRestaurant(DEFAULT_ID_RESTAURANT)
             .nomRestaurant(DEFAULT_NOM_RESTAURANT)
             .adresseRestaurant(DEFAULT_ADRESSE_RESTAURANT)
             .numRestaurant(DEFAULT_NUM_RESTAURANT);
@@ -89,7 +85,6 @@ class RestaurantResourceIT {
      */
     public static Restaurant createUpdatedEntity(EntityManager em) {
         Restaurant restaurant = new Restaurant()
-            .idRestaurant(UPDATED_ID_RESTAURANT)
             .nomRestaurant(UPDATED_NOM_RESTAURANT)
             .adresseRestaurant(UPDATED_ADRESSE_RESTAURANT)
             .numRestaurant(UPDATED_NUM_RESTAURANT);
@@ -133,7 +128,6 @@ class RestaurantResourceIT {
         List<Restaurant> restaurantList = restaurantRepository.findAll().collectList().block();
         assertThat(restaurantList).hasSize(databaseSizeBeforeCreate + 1);
         Restaurant testRestaurant = restaurantList.get(restaurantList.size() - 1);
-        assertThat(testRestaurant.getIdRestaurant()).isEqualTo(DEFAULT_ID_RESTAURANT);
         assertThat(testRestaurant.getNomRestaurant()).isEqualTo(DEFAULT_NOM_RESTAURANT);
         assertThat(testRestaurant.getAdresseRestaurant()).isEqualTo(DEFAULT_ADRESSE_RESTAURANT);
         assertThat(testRestaurant.getNumRestaurant()).isEqualTo(DEFAULT_NUM_RESTAURANT);
@@ -180,8 +174,6 @@ class RestaurantResourceIT {
             .expectBody()
             .jsonPath("$.[*].id")
             .value(hasItem(restaurant.getId().intValue()))
-            .jsonPath("$.[*].idRestaurant")
-            .value(hasItem(DEFAULT_ID_RESTAURANT))
             .jsonPath("$.[*].nomRestaurant")
             .value(hasItem(DEFAULT_NOM_RESTAURANT))
             .jsonPath("$.[*].adresseRestaurant")
@@ -208,8 +200,6 @@ class RestaurantResourceIT {
             .expectBody()
             .jsonPath("$.id")
             .value(is(restaurant.getId().intValue()))
-            .jsonPath("$.idRestaurant")
-            .value(is(DEFAULT_ID_RESTAURANT))
             .jsonPath("$.nomRestaurant")
             .value(is(DEFAULT_NOM_RESTAURANT))
             .jsonPath("$.adresseRestaurant")
@@ -240,7 +230,6 @@ class RestaurantResourceIT {
         // Update the restaurant
         Restaurant updatedRestaurant = restaurantRepository.findById(restaurant.getId()).block();
         updatedRestaurant
-            .idRestaurant(UPDATED_ID_RESTAURANT)
             .nomRestaurant(UPDATED_NOM_RESTAURANT)
             .adresseRestaurant(UPDATED_ADRESSE_RESTAURANT)
             .numRestaurant(UPDATED_NUM_RESTAURANT);
@@ -259,7 +248,6 @@ class RestaurantResourceIT {
         List<Restaurant> restaurantList = restaurantRepository.findAll().collectList().block();
         assertThat(restaurantList).hasSize(databaseSizeBeforeUpdate);
         Restaurant testRestaurant = restaurantList.get(restaurantList.size() - 1);
-        assertThat(testRestaurant.getIdRestaurant()).isEqualTo(UPDATED_ID_RESTAURANT);
         assertThat(testRestaurant.getNomRestaurant()).isEqualTo(UPDATED_NOM_RESTAURANT);
         assertThat(testRestaurant.getAdresseRestaurant()).isEqualTo(UPDATED_ADRESSE_RESTAURANT);
         assertThat(testRestaurant.getNumRestaurant()).isEqualTo(UPDATED_NUM_RESTAURANT);
@@ -358,7 +346,6 @@ class RestaurantResourceIT {
         List<Restaurant> restaurantList = restaurantRepository.findAll().collectList().block();
         assertThat(restaurantList).hasSize(databaseSizeBeforeUpdate);
         Restaurant testRestaurant = restaurantList.get(restaurantList.size() - 1);
-        assertThat(testRestaurant.getIdRestaurant()).isEqualTo(DEFAULT_ID_RESTAURANT);
         assertThat(testRestaurant.getNomRestaurant()).isEqualTo(DEFAULT_NOM_RESTAURANT);
         assertThat(testRestaurant.getAdresseRestaurant()).isEqualTo(DEFAULT_ADRESSE_RESTAURANT);
         assertThat(testRestaurant.getNumRestaurant()).isEqualTo(DEFAULT_NUM_RESTAURANT);
@@ -376,7 +363,6 @@ class RestaurantResourceIT {
         partialUpdatedRestaurant.setId(restaurant.getId());
 
         partialUpdatedRestaurant
-            .idRestaurant(UPDATED_ID_RESTAURANT)
             .nomRestaurant(UPDATED_NOM_RESTAURANT)
             .adresseRestaurant(UPDATED_ADRESSE_RESTAURANT)
             .numRestaurant(UPDATED_NUM_RESTAURANT);
@@ -394,7 +380,6 @@ class RestaurantResourceIT {
         List<Restaurant> restaurantList = restaurantRepository.findAll().collectList().block();
         assertThat(restaurantList).hasSize(databaseSizeBeforeUpdate);
         Restaurant testRestaurant = restaurantList.get(restaurantList.size() - 1);
-        assertThat(testRestaurant.getIdRestaurant()).isEqualTo(UPDATED_ID_RESTAURANT);
         assertThat(testRestaurant.getNomRestaurant()).isEqualTo(UPDATED_NOM_RESTAURANT);
         assertThat(testRestaurant.getAdresseRestaurant()).isEqualTo(UPDATED_ADRESSE_RESTAURANT);
         assertThat(testRestaurant.getNumRestaurant()).isEqualTo(UPDATED_NUM_RESTAURANT);

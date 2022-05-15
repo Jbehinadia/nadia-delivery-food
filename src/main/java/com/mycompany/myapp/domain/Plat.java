@@ -21,9 +21,6 @@ public class Plat implements Serializable {
     @Column("id")
     private Long id;
 
-    @Column("id_plat")
-    private String idPlat;
-
     @Column("nom_plat")
     private String nomPlat;
 
@@ -63,19 +60,6 @@ public class Plat implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getIdPlat() {
-        return this.idPlat;
-    }
-
-    public Plat idPlat(String idPlat) {
-        this.setIdPlat(idPlat);
-        return this;
-    }
-
-    public void setIdPlat(String idPlat) {
-        this.idPlat = idPlat;
     }
 
     public String getNomPlat() {
@@ -220,7 +204,6 @@ public class Plat implements Serializable {
     public String toString() {
         return "Plat{" +
             "id=" + getId() +
-            ", idPlat='" + getIdPlat() + "'" +
             ", nomPlat='" + getNomPlat() + "'" +
             ", imagePath='" + getImagePath() + "'" +
             ", prix=" + getPrix() +

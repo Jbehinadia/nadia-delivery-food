@@ -34,9 +34,6 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 @WithMockUser
 class ClientResourceIT {
 
-    private static final String DEFAULT_ID_CLIENT = "AAAAAAAAAA";
-    private static final String UPDATED_ID_CLIENT = "BBBBBBBBBB";
-
     private static final String DEFAULT_NOM_CLIENT = "AAAAAAAAAA";
     private static final String UPDATED_NOM_CLIENT = "BBBBBBBBBB";
 
@@ -77,7 +74,6 @@ class ClientResourceIT {
      */
     public static Client createEntity(EntityManager em) {
         Client client = new Client()
-            .idClient(DEFAULT_ID_CLIENT)
             .nomClient(DEFAULT_NOM_CLIENT)
             .prenomClient(DEFAULT_PRENOM_CLIENT)
             .adresseClient(DEFAULT_ADRESSE_CLIENT)
@@ -93,7 +89,6 @@ class ClientResourceIT {
      */
     public static Client createUpdatedEntity(EntityManager em) {
         Client client = new Client()
-            .idClient(UPDATED_ID_CLIENT)
             .nomClient(UPDATED_NOM_CLIENT)
             .prenomClient(UPDATED_PRENOM_CLIENT)
             .adresseClient(UPDATED_ADRESSE_CLIENT)
@@ -138,7 +133,6 @@ class ClientResourceIT {
         List<Client> clientList = clientRepository.findAll().collectList().block();
         assertThat(clientList).hasSize(databaseSizeBeforeCreate + 1);
         Client testClient = clientList.get(clientList.size() - 1);
-        assertThat(testClient.getIdClient()).isEqualTo(DEFAULT_ID_CLIENT);
         assertThat(testClient.getNomClient()).isEqualTo(DEFAULT_NOM_CLIENT);
         assertThat(testClient.getPrenomClient()).isEqualTo(DEFAULT_PRENOM_CLIENT);
         assertThat(testClient.getAdresseClient()).isEqualTo(DEFAULT_ADRESSE_CLIENT);
@@ -186,8 +180,6 @@ class ClientResourceIT {
             .expectBody()
             .jsonPath("$.[*].id")
             .value(hasItem(client.getId().intValue()))
-            .jsonPath("$.[*].idClient")
-            .value(hasItem(DEFAULT_ID_CLIENT))
             .jsonPath("$.[*].nomClient")
             .value(hasItem(DEFAULT_NOM_CLIENT))
             .jsonPath("$.[*].prenomClient")
@@ -216,8 +208,6 @@ class ClientResourceIT {
             .expectBody()
             .jsonPath("$.id")
             .value(is(client.getId().intValue()))
-            .jsonPath("$.idClient")
-            .value(is(DEFAULT_ID_CLIENT))
             .jsonPath("$.nomClient")
             .value(is(DEFAULT_NOM_CLIENT))
             .jsonPath("$.prenomClient")
@@ -250,7 +240,6 @@ class ClientResourceIT {
         // Update the client
         Client updatedClient = clientRepository.findById(client.getId()).block();
         updatedClient
-            .idClient(UPDATED_ID_CLIENT)
             .nomClient(UPDATED_NOM_CLIENT)
             .prenomClient(UPDATED_PRENOM_CLIENT)
             .adresseClient(UPDATED_ADRESSE_CLIENT)
@@ -270,7 +259,6 @@ class ClientResourceIT {
         List<Client> clientList = clientRepository.findAll().collectList().block();
         assertThat(clientList).hasSize(databaseSizeBeforeUpdate);
         Client testClient = clientList.get(clientList.size() - 1);
-        assertThat(testClient.getIdClient()).isEqualTo(UPDATED_ID_CLIENT);
         assertThat(testClient.getNomClient()).isEqualTo(UPDATED_NOM_CLIENT);
         assertThat(testClient.getPrenomClient()).isEqualTo(UPDATED_PRENOM_CLIENT);
         assertThat(testClient.getAdresseClient()).isEqualTo(UPDATED_ADRESSE_CLIENT);
@@ -357,7 +345,7 @@ class ClientResourceIT {
         Client partialUpdatedClient = new Client();
         partialUpdatedClient.setId(client.getId());
 
-        partialUpdatedClient.idClient(UPDATED_ID_CLIENT).nomClient(UPDATED_NOM_CLIENT).prenomClient(UPDATED_PRENOM_CLIENT);
+        partialUpdatedClient.nomClient(UPDATED_NOM_CLIENT).prenomClient(UPDATED_PRENOM_CLIENT).adresseClient(UPDATED_ADRESSE_CLIENT);
 
         webTestClient
             .patch()
@@ -372,10 +360,9 @@ class ClientResourceIT {
         List<Client> clientList = clientRepository.findAll().collectList().block();
         assertThat(clientList).hasSize(databaseSizeBeforeUpdate);
         Client testClient = clientList.get(clientList.size() - 1);
-        assertThat(testClient.getIdClient()).isEqualTo(UPDATED_ID_CLIENT);
         assertThat(testClient.getNomClient()).isEqualTo(UPDATED_NOM_CLIENT);
         assertThat(testClient.getPrenomClient()).isEqualTo(UPDATED_PRENOM_CLIENT);
-        assertThat(testClient.getAdresseClient()).isEqualTo(DEFAULT_ADRESSE_CLIENT);
+        assertThat(testClient.getAdresseClient()).isEqualTo(UPDATED_ADRESSE_CLIENT);
         assertThat(testClient.getNumClient()).isEqualTo(DEFAULT_NUM_CLIENT);
     }
 
@@ -391,7 +378,6 @@ class ClientResourceIT {
         partialUpdatedClient.setId(client.getId());
 
         partialUpdatedClient
-            .idClient(UPDATED_ID_CLIENT)
             .nomClient(UPDATED_NOM_CLIENT)
             .prenomClient(UPDATED_PRENOM_CLIENT)
             .adresseClient(UPDATED_ADRESSE_CLIENT)
@@ -410,7 +396,6 @@ class ClientResourceIT {
         List<Client> clientList = clientRepository.findAll().collectList().block();
         assertThat(clientList).hasSize(databaseSizeBeforeUpdate);
         Client testClient = clientList.get(clientList.size() - 1);
-        assertThat(testClient.getIdClient()).isEqualTo(UPDATED_ID_CLIENT);
         assertThat(testClient.getNomClient()).isEqualTo(UPDATED_NOM_CLIENT);
         assertThat(testClient.getPrenomClient()).isEqualTo(UPDATED_PRENOM_CLIENT);
         assertThat(testClient.getAdresseClient()).isEqualTo(UPDATED_ADRESSE_CLIENT);

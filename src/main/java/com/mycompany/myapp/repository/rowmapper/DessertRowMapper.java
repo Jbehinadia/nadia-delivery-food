@@ -25,7 +25,6 @@ public class DessertRowMapper implements BiFunction<Row, String, Dessert> {
     public Dessert apply(Row row, String prefix) {
         Dessert entity = new Dessert();
         entity.setId(converter.fromRow(row, prefix + "_id", Long.class));
-        entity.setIdDessert(converter.fromRow(row, prefix + "_id_dessert", String.class));
         entity.setNomDessert(converter.fromRow(row, prefix + "_nom_dessert", String.class));
         entity.setImagePath(converter.fromRow(row, prefix + "_image_path", String.class));
         entity.setPrix(converter.fromRow(row, prefix + "_prix", Double.class));

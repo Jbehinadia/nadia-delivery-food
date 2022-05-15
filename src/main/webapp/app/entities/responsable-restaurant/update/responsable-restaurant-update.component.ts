@@ -21,7 +21,6 @@ export class ResponsableRestaurantUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idResponsable: [],
     nomResponsable: [],
     prenomResponsable: [],
     adresseResponsable: [],
@@ -84,7 +83,6 @@ export class ResponsableRestaurantUpdateComponent implements OnInit {
   protected updateForm(responsableRestaurant: IResponsableRestaurant): void {
     this.editForm.patchValue({
       id: responsableRestaurant.id,
-      idResponsable: responsableRestaurant.idResponsable,
       nomResponsable: responsableRestaurant.nomResponsable,
       prenomResponsable: responsableRestaurant.prenomResponsable,
       adresseResponsable: responsableRestaurant.adresseResponsable,
@@ -114,7 +112,6 @@ export class ResponsableRestaurantUpdateComponent implements OnInit {
     return {
       ...new ResponsableRestaurant(),
       id: this.editForm.get(['id'])!.value,
-      idResponsable: this.editForm.get(['idResponsable'])!.value,
       nomResponsable: this.editForm.get(['nomResponsable'])!.value,
       prenomResponsable: this.editForm.get(['prenomResponsable'])!.value,
       adresseResponsable: this.editForm.get(['adresseResponsable'])!.value,

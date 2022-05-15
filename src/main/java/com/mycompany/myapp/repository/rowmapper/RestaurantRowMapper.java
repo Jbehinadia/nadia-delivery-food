@@ -25,7 +25,6 @@ public class RestaurantRowMapper implements BiFunction<Row, String, Restaurant> 
     public Restaurant apply(Row row, String prefix) {
         Restaurant entity = new Restaurant();
         entity.setId(converter.fromRow(row, prefix + "_id", Long.class));
-        entity.setIdRestaurant(converter.fromRow(row, prefix + "_id_restaurant", String.class));
         entity.setNomRestaurant(converter.fromRow(row, prefix + "_nom_restaurant", String.class));
         entity.setAdresseRestaurant(converter.fromRow(row, prefix + "_adresse_restaurant", String.class));
         entity.setNumRestaurant(converter.fromRow(row, prefix + "_num_restaurant", String.class));

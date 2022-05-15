@@ -34,9 +34,6 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 @WithMockUser
 class BoissonsResourceIT {
 
-    private static final String DEFAULT_ID_BOISSONS = "AAAAAAAAAA";
-    private static final String UPDATED_ID_BOISSONS = "BBBBBBBBBB";
-
     private static final String DEFAULT_NOM_BOISSONS = "AAAAAAAAAA";
     private static final String UPDATED_NOM_BOISSONS = "BBBBBBBBBB";
 
@@ -80,7 +77,6 @@ class BoissonsResourceIT {
      */
     public static Boissons createEntity(EntityManager em) {
         Boissons boissons = new Boissons()
-            .idBoissons(DEFAULT_ID_BOISSONS)
             .nomBoissons(DEFAULT_NOM_BOISSONS)
             .imagePath(DEFAULT_IMAGE_PATH)
             .prix(DEFAULT_PRIX)
@@ -97,7 +93,6 @@ class BoissonsResourceIT {
      */
     public static Boissons createUpdatedEntity(EntityManager em) {
         Boissons boissons = new Boissons()
-            .idBoissons(UPDATED_ID_BOISSONS)
             .nomBoissons(UPDATED_NOM_BOISSONS)
             .imagePath(UPDATED_IMAGE_PATH)
             .prix(UPDATED_PRIX)
@@ -143,7 +138,6 @@ class BoissonsResourceIT {
         List<Boissons> boissonsList = boissonsRepository.findAll().collectList().block();
         assertThat(boissonsList).hasSize(databaseSizeBeforeCreate + 1);
         Boissons testBoissons = boissonsList.get(boissonsList.size() - 1);
-        assertThat(testBoissons.getIdBoissons()).isEqualTo(DEFAULT_ID_BOISSONS);
         assertThat(testBoissons.getNomBoissons()).isEqualTo(DEFAULT_NOM_BOISSONS);
         assertThat(testBoissons.getImagePath()).isEqualTo(DEFAULT_IMAGE_PATH);
         assertThat(testBoissons.getPrix()).isEqualTo(DEFAULT_PRIX);
@@ -192,8 +186,6 @@ class BoissonsResourceIT {
             .expectBody()
             .jsonPath("$.[*].id")
             .value(hasItem(boissons.getId().intValue()))
-            .jsonPath("$.[*].idBoissons")
-            .value(hasItem(DEFAULT_ID_BOISSONS))
             .jsonPath("$.[*].nomBoissons")
             .value(hasItem(DEFAULT_NOM_BOISSONS))
             .jsonPath("$.[*].imagePath")
@@ -224,8 +216,6 @@ class BoissonsResourceIT {
             .expectBody()
             .jsonPath("$.id")
             .value(is(boissons.getId().intValue()))
-            .jsonPath("$.idBoissons")
-            .value(is(DEFAULT_ID_BOISSONS))
             .jsonPath("$.nomBoissons")
             .value(is(DEFAULT_NOM_BOISSONS))
             .jsonPath("$.imagePath")
@@ -260,7 +250,6 @@ class BoissonsResourceIT {
         // Update the boissons
         Boissons updatedBoissons = boissonsRepository.findById(boissons.getId()).block();
         updatedBoissons
-            .idBoissons(UPDATED_ID_BOISSONS)
             .nomBoissons(UPDATED_NOM_BOISSONS)
             .imagePath(UPDATED_IMAGE_PATH)
             .prix(UPDATED_PRIX)
@@ -281,7 +270,6 @@ class BoissonsResourceIT {
         List<Boissons> boissonsList = boissonsRepository.findAll().collectList().block();
         assertThat(boissonsList).hasSize(databaseSizeBeforeUpdate);
         Boissons testBoissons = boissonsList.get(boissonsList.size() - 1);
-        assertThat(testBoissons.getIdBoissons()).isEqualTo(UPDATED_ID_BOISSONS);
         assertThat(testBoissons.getNomBoissons()).isEqualTo(UPDATED_NOM_BOISSONS);
         assertThat(testBoissons.getImagePath()).isEqualTo(UPDATED_IMAGE_PATH);
         assertThat(testBoissons.getPrix()).isEqualTo(UPDATED_PRIX);
@@ -369,7 +357,7 @@ class BoissonsResourceIT {
         Boissons partialUpdatedBoissons = new Boissons();
         partialUpdatedBoissons.setId(boissons.getId());
 
-        partialUpdatedBoissons.nomBoissons(UPDATED_NOM_BOISSONS).prix(UPDATED_PRIX);
+        partialUpdatedBoissons.imagePath(UPDATED_IMAGE_PATH).remisePerc(UPDATED_REMISE_PERC);
 
         webTestClient
             .patch()
@@ -384,11 +372,10 @@ class BoissonsResourceIT {
         List<Boissons> boissonsList = boissonsRepository.findAll().collectList().block();
         assertThat(boissonsList).hasSize(databaseSizeBeforeUpdate);
         Boissons testBoissons = boissonsList.get(boissonsList.size() - 1);
-        assertThat(testBoissons.getIdBoissons()).isEqualTo(DEFAULT_ID_BOISSONS);
-        assertThat(testBoissons.getNomBoissons()).isEqualTo(UPDATED_NOM_BOISSONS);
-        assertThat(testBoissons.getImagePath()).isEqualTo(DEFAULT_IMAGE_PATH);
-        assertThat(testBoissons.getPrix()).isEqualTo(UPDATED_PRIX);
-        assertThat(testBoissons.getRemisePerc()).isEqualTo(DEFAULT_REMISE_PERC);
+        assertThat(testBoissons.getNomBoissons()).isEqualTo(DEFAULT_NOM_BOISSONS);
+        assertThat(testBoissons.getImagePath()).isEqualTo(UPDATED_IMAGE_PATH);
+        assertThat(testBoissons.getPrix()).isEqualTo(DEFAULT_PRIX);
+        assertThat(testBoissons.getRemisePerc()).isEqualTo(UPDATED_REMISE_PERC);
         assertThat(testBoissons.getRemiceVal()).isEqualTo(DEFAULT_REMICE_VAL);
     }
 
@@ -404,7 +391,6 @@ class BoissonsResourceIT {
         partialUpdatedBoissons.setId(boissons.getId());
 
         partialUpdatedBoissons
-            .idBoissons(UPDATED_ID_BOISSONS)
             .nomBoissons(UPDATED_NOM_BOISSONS)
             .imagePath(UPDATED_IMAGE_PATH)
             .prix(UPDATED_PRIX)
@@ -424,7 +410,6 @@ class BoissonsResourceIT {
         List<Boissons> boissonsList = boissonsRepository.findAll().collectList().block();
         assertThat(boissonsList).hasSize(databaseSizeBeforeUpdate);
         Boissons testBoissons = boissonsList.get(boissonsList.size() - 1);
-        assertThat(testBoissons.getIdBoissons()).isEqualTo(UPDATED_ID_BOISSONS);
         assertThat(testBoissons.getNomBoissons()).isEqualTo(UPDATED_NOM_BOISSONS);
         assertThat(testBoissons.getImagePath()).isEqualTo(UPDATED_IMAGE_PATH);
         assertThat(testBoissons.getPrix()).isEqualTo(UPDATED_PRIX);

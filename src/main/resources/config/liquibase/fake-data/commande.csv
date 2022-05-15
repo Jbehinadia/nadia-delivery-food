@@ -1,11 +1,11 @@
-id;id_commande;adresse_commande;etat;date_commande;prix_total;remise_perc;remice_val;prix_livreson;date_sortie
-1;back-end PCI;calculating;Administrateur Poitou-Charentes Total;2022-05-14T23:43:41;59850;83566;43405;65232;2022-05-15T13:45:03
-2;feed partnerships tchèque;online Guinée;Sausages a c;2022-05-14T22:43:07;36484;89526;31057;18149;2022-05-15T18:03:22
-3;Languedoc-Roussillon out-of-the-box Aquitaine;Lorraine payment mobile;Producteur Optimized;2022-05-15T02:39:36;34996;25724;42311;72971;2022-05-15T03:44:02
-4;Picardie;Berkshire technologies;Chicken Plastic EXE;2022-05-14T20:57:22;21980;9985;77285;21621;2022-05-15T02:47:43
-5;Alsace Languedoc-Roussillon Fiji;Malagasy;c Île-de-France;2022-05-15T12:36:11;13027;14222;78850;67317;2022-05-15T18:49:47
-6;index Towels virtual;hack;Gambie;2022-05-15T18:24:11;74856;63670;70896;20144;2022-05-14T20:47:42
-7;Érythrée Borders;Cotton quantify;Toys;2022-05-15T09:55:55;82791;56893;97658;75080;2022-05-15T07:47:29
-8;e-tailers Ergonomic non-volatile;Avon a;Haute-Normandie Account Keyboard;2022-05-14T22:25:25;70874;61659;57913;42848;2022-05-14T20:47:18
-9;Mandatory;Sports;Executif payment;2022-05-14T19:41:17;73674;36318;54974;86281;2022-05-15T18:54:43
-10;Books deliver Bedfordshire;Bike Cameroun;mobile c;2022-05-15T08:43:36;71912;59754;78180;32282;2022-05-15T03:43:08
+id;adresse_commande;etat;date_commande;prix_total;remise_perc;remice_val;prix_livreson;date_sortie
+1;back-end PCI;calculating;2022-05-15T00:38:36;97545;42697;38038;57402;2022-05-14T21:33:48
+2;Total multi-byte;deposit feed;2022-05-15T09:00:37;9409;83577;54746;22793;2022-05-15T05:38:44
+3;online Guinée;Sausages a c;2022-05-14T22:43:07;36484;89526;31057;18149;2022-05-15T18:03:22
+4;Languedoc-Roussillon out-of-the-box Aquitaine;Lorraine payment mobile;2022-05-15T06:25:46;96888;76570;74730;24446;2022-05-15T06:04:04
+5;Rupiah mindshare;Picardie;2022-05-15T06:12:14;50516;41936;20428;43577;2022-05-15T09:07:38
+6;up;Uganda;2022-05-15T10:50:09;31354;86870;53549;57695;2022-05-14T20:57:22
+7;Licensed;pixel interfaces c;2022-05-15T11:01:43;12686;66786;51369;37449;2022-05-15T09:36:26
+8;bypass Buckinghamshire Wooden;Outdoors web convergence;2022-05-14T22:49:49;80175;30181;56308;20169;2022-05-15T00:59:24
+9;monetize;deposit;2022-05-15T03:52:48;70896;20144;93192;54596;2022-05-15T06:41:07
+10;Berkshire;leading-edge;2022-05-14T20:30:43;74525;57955;84962;18652;2022-05-15T19:08:49

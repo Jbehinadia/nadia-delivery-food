@@ -25,7 +25,6 @@ public class PlatRowMapper implements BiFunction<Row, String, Plat> {
     public Plat apply(Row row, String prefix) {
         Plat entity = new Plat();
         entity.setId(converter.fromRow(row, prefix + "_id", Long.class));
-        entity.setIdPlat(converter.fromRow(row, prefix + "_id_plat", String.class));
         entity.setNomPlat(converter.fromRow(row, prefix + "_nom_plat", String.class));
         entity.setImagePath(converter.fromRow(row, prefix + "_image_path", String.class));
         entity.setPrix(converter.fromRow(row, prefix + "_prix", Double.class));

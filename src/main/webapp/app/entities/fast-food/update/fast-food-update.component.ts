@@ -21,7 +21,6 @@ export class FastFoodUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idFood: [],
     nomFood: [],
     imagePath: [],
     prix: [],
@@ -85,7 +84,6 @@ export class FastFoodUpdateComponent implements OnInit {
   protected updateForm(fastFood: IFastFood): void {
     this.editForm.patchValue({
       id: fastFood.id,
-      idFood: fastFood.idFood,
       nomFood: fastFood.nomFood,
       imagePath: fastFood.imagePath,
       prix: fastFood.prix,
@@ -109,7 +107,6 @@ export class FastFoodUpdateComponent implements OnInit {
     return {
       ...new FastFood(),
       id: this.editForm.get(['id'])!.value,
-      idFood: this.editForm.get(['idFood'])!.value,
       nomFood: this.editForm.get(['nomFood'])!.value,
       imagePath: this.editForm.get(['imagePath'])!.value,
       prix: this.editForm.get(['prix'])!.value,

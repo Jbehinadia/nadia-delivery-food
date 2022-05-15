@@ -34,9 +34,6 @@ import org.springframework.test.web.reactive.server.WebTestClient;
 @WithMockUser
 class DessertResourceIT {
 
-    private static final String DEFAULT_ID_DESSERT = "AAAAAAAAAA";
-    private static final String UPDATED_ID_DESSERT = "BBBBBBBBBB";
-
     private static final String DEFAULT_NOM_DESSERT = "AAAAAAAAAA";
     private static final String UPDATED_NOM_DESSERT = "BBBBBBBBBB";
 
@@ -80,7 +77,6 @@ class DessertResourceIT {
      */
     public static Dessert createEntity(EntityManager em) {
         Dessert dessert = new Dessert()
-            .idDessert(DEFAULT_ID_DESSERT)
             .nomDessert(DEFAULT_NOM_DESSERT)
             .imagePath(DEFAULT_IMAGE_PATH)
             .prix(DEFAULT_PRIX)
@@ -97,7 +93,6 @@ class DessertResourceIT {
      */
     public static Dessert createUpdatedEntity(EntityManager em) {
         Dessert dessert = new Dessert()
-            .idDessert(UPDATED_ID_DESSERT)
             .nomDessert(UPDATED_NOM_DESSERT)
             .imagePath(UPDATED_IMAGE_PATH)
             .prix(UPDATED_PRIX)
@@ -143,7 +138,6 @@ class DessertResourceIT {
         List<Dessert> dessertList = dessertRepository.findAll().collectList().block();
         assertThat(dessertList).hasSize(databaseSizeBeforeCreate + 1);
         Dessert testDessert = dessertList.get(dessertList.size() - 1);
-        assertThat(testDessert.getIdDessert()).isEqualTo(DEFAULT_ID_DESSERT);
         assertThat(testDessert.getNomDessert()).isEqualTo(DEFAULT_NOM_DESSERT);
         assertThat(testDessert.getImagePath()).isEqualTo(DEFAULT_IMAGE_PATH);
         assertThat(testDessert.getPrix()).isEqualTo(DEFAULT_PRIX);
@@ -192,8 +186,6 @@ class DessertResourceIT {
             .expectBody()
             .jsonPath("$.[*].id")
             .value(hasItem(dessert.getId().intValue()))
-            .jsonPath("$.[*].idDessert")
-            .value(hasItem(DEFAULT_ID_DESSERT))
             .jsonPath("$.[*].nomDessert")
             .value(hasItem(DEFAULT_NOM_DESSERT))
             .jsonPath("$.[*].imagePath")
@@ -224,8 +216,6 @@ class DessertResourceIT {
             .expectBody()
             .jsonPath("$.id")
             .value(is(dessert.getId().intValue()))
-            .jsonPath("$.idDessert")
-            .value(is(DEFAULT_ID_DESSERT))
             .jsonPath("$.nomDessert")
             .value(is(DEFAULT_NOM_DESSERT))
             .jsonPath("$.imagePath")
@@ -260,7 +250,6 @@ class DessertResourceIT {
         // Update the dessert
         Dessert updatedDessert = dessertRepository.findById(dessert.getId()).block();
         updatedDessert
-            .idDessert(UPDATED_ID_DESSERT)
             .nomDessert(UPDATED_NOM_DESSERT)
             .imagePath(UPDATED_IMAGE_PATH)
             .prix(UPDATED_PRIX)
@@ -281,7 +270,6 @@ class DessertResourceIT {
         List<Dessert> dessertList = dessertRepository.findAll().collectList().block();
         assertThat(dessertList).hasSize(databaseSizeBeforeUpdate);
         Dessert testDessert = dessertList.get(dessertList.size() - 1);
-        assertThat(testDessert.getIdDessert()).isEqualTo(UPDATED_ID_DESSERT);
         assertThat(testDessert.getNomDessert()).isEqualTo(UPDATED_NOM_DESSERT);
         assertThat(testDessert.getImagePath()).isEqualTo(UPDATED_IMAGE_PATH);
         assertThat(testDessert.getPrix()).isEqualTo(UPDATED_PRIX);
@@ -370,10 +358,10 @@ class DessertResourceIT {
         partialUpdatedDessert.setId(dessert.getId());
 
         partialUpdatedDessert
-            .idDessert(UPDATED_ID_DESSERT)
             .nomDessert(UPDATED_NOM_DESSERT)
             .imagePath(UPDATED_IMAGE_PATH)
-            .prix(UPDATED_PRIX);
+            .prix(UPDATED_PRIX)
+            .remisePerc(UPDATED_REMISE_PERC);
 
         webTestClient
             .patch()
@@ -388,11 +376,10 @@ class DessertResourceIT {
         List<Dessert> dessertList = dessertRepository.findAll().collectList().block();
         assertThat(dessertList).hasSize(databaseSizeBeforeUpdate);
         Dessert testDessert = dessertList.get(dessertList.size() - 1);
-        assertThat(testDessert.getIdDessert()).isEqualTo(UPDATED_ID_DESSERT);
         assertThat(testDessert.getNomDessert()).isEqualTo(UPDATED_NOM_DESSERT);
         assertThat(testDessert.getImagePath()).isEqualTo(UPDATED_IMAGE_PATH);
         assertThat(testDessert.getPrix()).isEqualTo(UPDATED_PRIX);
-        assertThat(testDessert.getRemisePerc()).isEqualTo(DEFAULT_REMISE_PERC);
+        assertThat(testDessert.getRemisePerc()).isEqualTo(UPDATED_REMISE_PERC);
         assertThat(testDessert.getRemiceVal()).isEqualTo(DEFAULT_REMICE_VAL);
     }
 
@@ -408,7 +395,6 @@ class DessertResourceIT {
         partialUpdatedDessert.setId(dessert.getId());
 
         partialUpdatedDessert
-            .idDessert(UPDATED_ID_DESSERT)
             .nomDessert(UPDATED_NOM_DESSERT)
             .imagePath(UPDATED_IMAGE_PATH)
             .prix(UPDATED_PRIX)
@@ -428,7 +414,6 @@ class DessertResourceIT {
         List<Dessert> dessertList = dessertRepository.findAll().collectList().block();
         assertThat(dessertList).hasSize(databaseSizeBeforeUpdate);
         Dessert testDessert = dessertList.get(dessertList.size() - 1);
-        assertThat(testDessert.getIdDessert()).isEqualTo(UPDATED_ID_DESSERT);
         assertThat(testDessert.getNomDessert()).isEqualTo(UPDATED_NOM_DESSERT);
         assertThat(testDessert.getImagePath()).isEqualTo(UPDATED_IMAGE_PATH);
         assertThat(testDessert.getPrix()).isEqualTo(UPDATED_PRIX);

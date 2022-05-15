@@ -25,7 +25,6 @@ public class FastFoodRowMapper implements BiFunction<Row, String, FastFood> {
     public FastFood apply(Row row, String prefix) {
         FastFood entity = new FastFood();
         entity.setId(converter.fromRow(row, prefix + "_id", Long.class));
-        entity.setIdFood(converter.fromRow(row, prefix + "_id_food", String.class));
         entity.setNomFood(converter.fromRow(row, prefix + "_nom_food", String.class));
         entity.setImagePath(converter.fromRow(row, prefix + "_image_path", String.class));
         entity.setPrix(converter.fromRow(row, prefix + "_prix", Double.class));

@@ -21,7 +21,6 @@ export class MenuUpdateComponent implements OnInit {
 
   editForm = this.fb.group({
     id: [],
-    idMenu: [],
     nomMenu: [],
     restaurant: [],
   });
@@ -81,7 +80,6 @@ export class MenuUpdateComponent implements OnInit {
   protected updateForm(menu: IMenu): void {
     this.editForm.patchValue({
       id: menu.id,
-      idMenu: menu.idMenu,
       nomMenu: menu.nomMenu,
       restaurant: menu.restaurant,
     });
@@ -108,7 +106,6 @@ export class MenuUpdateComponent implements OnInit {
     return {
       ...new Menu(),
       id: this.editForm.get(['id'])!.value,
-      idMenu: this.editForm.get(['idMenu'])!.value,
       nomMenu: this.editForm.get(['nomMenu'])!.value,
       restaurant: this.editForm.get(['restaurant'])!.value,
     };

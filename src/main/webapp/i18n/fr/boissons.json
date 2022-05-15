@@ -18,7 +18,6 @@
         "title": "Boissons"
       },
       "id": "ID",
-      "idBoissons": "Id Boissons",
       "nomBoissons": "Nom Boissons",
       "imagePath": "Image Path",
       "prix": "Prix",

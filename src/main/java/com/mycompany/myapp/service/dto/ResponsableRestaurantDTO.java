@@ -10,8 +10,6 @@ public class ResponsableRestaurantDTO implements Serializable {
 
     private Long id;
 
-    private String idResponsable;
-
     private String nomResponsable;
 
     private String prenomResponsable;
@@ -28,14 +26,6 @@ public class ResponsableRestaurantDTO implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getIdResponsable() {
-        return idResponsable;
-    }
-
-    public void setIdResponsable(String idResponsable) {
-        this.idResponsable = idResponsable;
     }
 
     public String getNomResponsable() {
@@ -104,7 +94,6 @@ public class ResponsableRestaurantDTO implements Serializable {
     public String toString() {
         return "ResponsableRestaurantDTO{" +
             "id=" + getId() +
-            ", idResponsable='" + getIdResponsable() + "'" +
             ", nomResponsable='" + getNomResponsable() + "'" +
             ", prenomResponsable='" + getPrenomResponsable() + "'" +
             ", adresseResponsable='" + getAdresseResponsable() + "'" +

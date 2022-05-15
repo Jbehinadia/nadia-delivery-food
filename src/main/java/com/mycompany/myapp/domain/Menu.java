@@ -21,9 +21,6 @@ public class Menu implements Serializable {
     @Column("id")
     private Long id;
 
-    @Column("id_menu")
-    private String idMenu;
-
     @Column("nom_menu")
     private String nomMenu;
 
@@ -63,19 +60,6 @@ public class Menu implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getIdMenu() {
-        return this.idMenu;
-    }
-
-    public Menu idMenu(String idMenu) {
-        this.setIdMenu(idMenu);
-        return this;
-    }
-
-    public void setIdMenu(String idMenu) {
-        this.idMenu = idMenu;
     }
 
     public String getNomMenu() {
@@ -261,7 +245,6 @@ public class Menu implements Serializable {
     public String toString() {
         return "Menu{" +
             "id=" + getId() +
-            ", idMenu='" + getIdMenu() + "'" +
             ", nomMenu='" + getNomMenu() + "'" +
             "}";
     }

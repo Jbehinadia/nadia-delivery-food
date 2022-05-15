@@ -6,7 +6,6 @@ import { IRestaurant } from 'app/entities/restaurant/restaurant.model';
 
 export interface IMenu {
   id?: number;
-  idMenu?: string | null;
   nomMenu?: string | null;
   fastFoods?: IFastFood[] | null;
   plats?: IPlat[] | null;
@@ -18,7 +17,6 @@ export interface IMenu {
 export class Menu implements IMenu {
   constructor(
     public id?: number,
-    public idMenu?: string | null,
     public nomMenu?: string | null,
     public fastFoods?: IFastFood[] | null,
     public plats?: IPlat[] | null,

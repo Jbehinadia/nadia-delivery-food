@@ -14,9 +14,6 @@
             <column name="id" type="bigint" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
-            <column name="id_responsable" type="varchar(255)">
-                <constraints nullable="true" />
-            </column>
             <column name="nom_responsable" type="varchar(255)">
                 <constraints nullable="true" />
             </column>
@@ -53,7 +50,6 @@
                   tableName="responsable_restaurant"
                   usePreparedStatements="true">
             <column name="id" type="numeric"/>
-            <column name="id_responsable" type="string"/>
             <column name="nom_responsable" type="string"/>
             <column name="prenom_responsable" type="string"/>
             <column name="adresse_responsable" type="string"/>

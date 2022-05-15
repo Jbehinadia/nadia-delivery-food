@@ -6,10 +6,6 @@
   "entityTableName": "client",
   "fields": [
     {
-      "fieldName": "idClient",
-      "fieldType": "String"
-    },
-    {
       "fieldName": "nomClient",
       "fieldType": "String"
     },

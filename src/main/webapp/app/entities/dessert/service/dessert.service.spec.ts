@@ -21,7 +21,6 @@ describe('Dessert Service', () => {
 
     elemDefault = {
       id: 0,
-      idDessert: 'AAAAAAA',
       nomDessert: 'AAAAAAA',
       imagePath: 'AAAAAAA',
       prix: 0,
@@ -62,7 +61,6 @@ describe('Dessert Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 1,
-          idDessert: 'BBBBBB',
           nomDessert: 'BBBBBB',
           imagePath: 'BBBBBB',
           prix: 1,
@@ -84,10 +82,9 @@ describe('Dessert Service', () => {
     it('should partial update a Dessert', () => {
       const patchObject = Object.assign(
         {
-          idDessert: 'BBBBBB',
-          imagePath: 'BBBBBB',
+          nomDessert: 'BBBBBB',
           prix: 1,
-          remiceVal: 1,
+          remisePerc: 1,
         },
         new Dessert()
       );
@@ -107,7 +104,6 @@ describe('Dessert Service', () => {
       const returnedFromService = Object.assign(
         {
           id: 1,
-          idDessert: 'BBBBBB',
           nomDessert: 'BBBBBB',
           imagePath: 'BBBBBB',
           prix: 1,
@@ -164,7 +160,7 @@ describe('Dessert Service', () => {
       });
 
       it('should add only unique Dessert to an array', () => {
-        const dessertArray: IDessert[] = [{ id: 123 }, { id: 456 }, { id: 79076 }];
+        const dessertArray: IDessert[] = [{ id: 123 }, { id: 456 }, { id: 50377 }];
         const dessertCollection: IDessert[] = [{ id: 123 }];
         expectedResult = service.addDessertToCollectionIfMissing(dessertCollection, ...dessertArray);
         expect(expectedResult).toHaveLength(3);
